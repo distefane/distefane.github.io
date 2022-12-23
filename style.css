@@ -1,0 +1,117 @@
+div#cv {
+    /*fondo de color azul que abarque toda la página*/
+    background: #000;
+    /*color de fuente blanco*/
+    color: #fff;
+    width: 1285px;
+    height: 1177px;
+}
+
+div#cv1 {
+    margin-top: 10px;
+    margin-left: 10px;
+    /*fondo de color azul que abarque toda la página*/
+    background: #c5d084;
+    /*color de fuente blanco*/
+    color: #000;
+    text-align: justify;
+    width: 360px;
+    height: 346px;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+div#cv3 {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
+    /*fondo de color azul que abarque toda la página*/
+    background: #9bd3ae;
+    /*color de fuente blanco*/
+    color: #000;
+    width: 895px;
+    height: 800px;
+    float: right;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+div#cv2 {
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    /*fondo de color azul que abarque toda la página*/
+    background: #95b8f6;
+    /*color de fuente blanco*/
+    color: #000;
+    text-align: justify;
+    width: 360px;
+    height: 445px;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+div#cvcol1 {
+    margin-top: 10px;
+    margin-left: 10px;
+    /*fondo de color azul que abarque toda la página*/
+    background: #ededaf;
+    /*color de fuente blanco*/
+    color: #fff;
+    text-align: justify;
+    width: 525px;
+    height: 346px;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+div#cvref {
+    margin-top: 10px;
+    margin-left: 10px;
+    /*fondo de color azul que abarque toda la página*/
+    background: #95b8f6;
+    /*color de fuente blanco*/
+    color: #000;
+    text-align: justify;
+    width: 360px;
+    height: 346px;
+    float: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+div#header {
+    /*fondo de color azul que abarque toda la página*/
+    background: #000;
+    /*color de fuente blanco*/
+    color: #fff;
+    display: inline-block; 
+    width: 100%; 
+    height: 200px;
+    padding: 10px 0px;
+}
+
+div#contenedorheader{
+    background: #fdcae1;
+    width: 1285px;
+    height: 200px;
+    padding: 0px; border: lightyellow 0px solid; 
+}
+
+img#fotocv {
+    /*borde redondeado*/
+    border-radius: 0%;
+    /*borde de 5px*/
+    border: 10px solid #9bd3ae;
+    /*margen de 10px*/
+    margin: 10px;
+    /*alineacion a la izquierda del div*/
+    float: left;
+}
