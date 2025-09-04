@@ -54,7 +54,7 @@
       <div class="row align-items-center g-4">
         <div class="col-12 col-lg-7">
           <h1 class="display-5 fw-bold">Tienda de Software MayaCode</h1>
-          <p class="lead mb-4">E-commerce de ejemplo con <b>carrito</b> y <b>pago simulado</b>. Ideal para demostración y para embeber en Google Sites.</p>
+          <p class="lead mb-4">Productos de software que realmente se adaptan a tus necesidades.</p>
           <a href="#productos" class="btn btn-light btn-lg shadow-soft">Ver productos</a>
         </div>
         <div class="col-12 col-lg-5 text-center">
@@ -221,57 +221,57 @@
   </section>
 
   <!-- FAQ / Contacto -->
-  <section id="faq" class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-12 col-lg-6">
-          <h3 class="fw-bold">Preguntas frecuentes</h3>
-          <div class="accordion" id="faqAcc">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q1h"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">¿Esto funciona dentro de Google Sites?</button></h2>
-              <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
-                <div class="accordion-body">Sí. Publica esta página (GitHub Pages / Netlify) y en Google Sites usa <b>Insertar → Incrustar → URL</b>. Verás el carrito y el checkout funcionando dentro del sitio.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q2h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">¿El pago es real?</button></h2>
-              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                <div class="accordion-body">No. Es <b>simulado</b> para práctica. Genera un folio y confirma visualmente el pago sin enviar datos a ningún servidor.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q3h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">¿Puedo cambiar productos y precios?</button></h2>
-              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
-                <div class="accordion-body">Sí. Edita el objeto <code>PRODUCTS</code> en el script al final del archivo y actualiza cards/imagenes según necesites.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <h3 class="fw-bold">Contacto</h3>
-          <div class="card rounded-2xl shadow-soft">
-            <div class="card-body">
-              <form onsubmit="event.preventDefault(); alert('Enviado (simulado)'); this.reset();">
-                <div class="mb-3">
-                  <label class="form-label">Nombre</label>
-                  <input class="form-control" required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Correo</label>
-                  <input type="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Mensaje</label>
-                  <textarea class="form-control" rows="3" required></textarea>
-                </div>
-                <button class="btn btn-primary">Enviar</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="faq" class="py-5">
+<div class="container">
+<div class="row g-4">
+<div class="col-12 col-lg-6">
+<h3 class="fw-bold">Preguntas Frecuentes</h3>
+<div class="accordion" id="faqAcc">
+<div class="accordion-item">
+<h2 class="accordion-header" id="q1h"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">¿Puedo comprar directamente desde esta página?</button></h2>
+<div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+<div class="accordion-body">Sí, puedes añadir los productos al carrito y simular una compra con tarjeta. Es un flujo de prueba para que veas cómo funcionará tu experiencia real.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h2 class="accordion-header" id="q2h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">¿El pago es seguro?</button></h2>
+<div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+<div class="accordion-body">Este sistema es una demostración, por lo tanto el pago no es real ni se procesan datos financieros. Es 100% seguro para que explores el proceso de compra.</div>
+</div>
+</div>
+<div class="accordion-item">
+<h2 class="accordion-header" id="q3h"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">¿Cómo puedo personalizar los productos?</button></h2>
+<div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+<div class="accordion-body">Puedes solicitarnos cambios en precios, imágenes o funciones. Nuestro equipo adapta los productos a las necesidades de tu negocio.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<h3 class="fw-bold">Contacto</h3>
+<div class="card rounded-2xl shadow-soft">
+<div class="card-body">
+<form onsubmit="event.preventDefault(); alert('Enviado (simulado)'); this.reset();">
+<div class="mb-3">
+<label class="form-label">Nombre</label>
+<input class="form-control" required>
+</div>
+<div class="mb-3">
+<label class="form-label">Correo</label>
+<input type="email" class="form-control" required>
+</div>
+<div class="mb-3">
+<label class="form-label">Mensaje</label>
+<textarea class="form-control" rows="3" required></textarea>
+</div>
+<button class="btn btn-primary">Enviar</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
   <footer class="py-4 border-top">
     <div class="container d-flex justify-content-between">
@@ -574,6 +574,7 @@
 
 </html>
 -->
+
 
 
 
