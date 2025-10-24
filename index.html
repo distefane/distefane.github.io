@@ -989,7 +989,10 @@ function renderProducts(page = 1) {
       </li>
     `);
   }
-     // ===== Registro simulado =====
+
+// Render inicial
+renderProducts();
+// ===== Registro simulado =====
 document.getElementById('regForm').addEventListener('submit', function (e) {
   e.preventDefault();
   const fd = new FormData(this);
@@ -1020,9 +1023,6 @@ function showRegResult(type, msg) {
   el.classList.remove('d-none');
 }
 }
-
-// Render inicial
-renderProducts();
 // end adding
   </script>
 </body>
@@ -1175,6 +1175,7 @@ renderProducts();
 
 </html>
 -->
+
 
 
 
