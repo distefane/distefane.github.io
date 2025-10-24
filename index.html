@@ -77,6 +77,20 @@
       </div>
 
       <div class="row g-4">
+        <!-- Producto 1 --> 
+        <div class="col-12 col-md-6 col-lg-4"> 
+          <div class="card h-100 shadow-soft rounded-2xl"> 
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop" class="card-img-top" alt="Inventario Express"/> 
+            <div class="card-body d-flex flex-column"> 
+              <h5 class="card-title">Inventario Express (ERP Lite)</h5> 
+              <p class="card-text small mb-2">Control de existencias, kardex básico y alertas por mínimos. Paquete descargable + demo online.</p> 
+              <div class="d-flex justify-content-between align-items-center mt-auto"> 
+                <span class="price">Q 599</span> 
+                <button class="btn btn-primary" onclick="addToCart('p1')"><i class="bi bi-cart-plus"></i> Agregar</button> 
+              </div> 
+            </div> 
+          </div> 
+        </div>
         <!-- Producto 1 -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-soft rounded-2xl">
@@ -391,11 +405,24 @@
 
   <script>
     // ===== Configuración de productos =====
+    // const PRODUCTS = {
+    //  p1: { id: 'p1', name: 'Inventario Express (ERP Lite)', price: 599, img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop' },
+    //  p2: { id: 'p2', name: 'Sitio Express (Plantilla Web)', price: 499, img: 'https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1200&auto=format&fit=crop' },
+    //  p3: { id: 'p3', name: 'Turnos Móvil (Citas Básicas)', price: 699, img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop' }
+    //};
     const PRODUCTS = {
-      p1: { id: 'p1', name: 'Inventario Express (ERP Lite)', price: 599, img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop' },
-      p2: { id: 'p2', name: 'Sitio Express (Plantilla Web)', price: 499, img: 'https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1200&auto=format&fit=crop' },
-      p3: { id: 'p3', name: 'Turnos Móvil (Citas Básicas)', price: 699, img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop' }
+      p1: { id: 'p1', name: 'Audífonos Sony WH-1000XM5', price: 4500, img: 'https://m.media-amazon.com/images/I/61d5eK6jzDL._AC_SL1500_.jpg' },
+      p2: { id: 'p2', name: 'Audífonos Sony WH-CH520', price: 600, img: 'https://m.media-amazon.com/images/I/61m2nNRv5tL._AC_SL1500_.jpg' },
+      p3: { id: 'p3', name: 'Audífonos Skullcandy Dime 3', price: 395, img: 'https://m.media-amazon.com/images/I/61AiQ3M6ZHL._AC_SL1500_.jpg' },
+      p4: { id: 'p4', name: 'Samsung Galaxy Watch 8 Classic', price: 2800, img: 'https://m.media-amazon.com/images/I/71KfXK0QmCL._AC_SL1500_.jpg' },
+      p5: { id: 'p5', name: 'Batidora Kitchen Aid', price: 3500, img: 'https://m.media-amazon.com/images/I/61F2e4n4pFL._AC_SL1500_.jpg' },
+      p6: { id: 'p6', name: 'Licuadora NB600', price: 1000, img: 'https://m.media-amazon.com/images/I/71llDJwzWJL._AC_SL1500_.jpg' },
+      p7: { id: 'p7', name: 'Refrigeradora LG InstaView', price: 9999, img: 'https://m.media-amazon.com/images/I/71oE6WJ4PkL._AC_SL1500_.jpg' },
+      p8: { id: 'p8', name: 'Horno Oster 45L', price: 1200, img: 'https://m.media-amazon.com/images/I/61C9Iom2OQL._AC_SL1500_.jpg' },
+      p9: { id: 'p9', name: 'Televisor Samsung Crystal UHD 55”', price: 5600, img: 'https://m.media-amazon.com/images/I/81O6fllZXkL._AC_SL1500_.jpg' },
+      p10: { id: 'p10', name: 'Consola Nintendo Switch OLED', price: 3999, img: 'https://m.media-amazon.com/images/I/71T0M1I4cmL._AC_SL1500_.jpg' }
     };
+
 
     // ===== Estado simple de carrito en localStorage =====
     const LS_KEY = 'mc_cart_v1';
@@ -679,6 +706,7 @@
 
 </html>
 -->
+
 
 
 
