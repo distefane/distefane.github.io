@@ -362,11 +362,11 @@ header#home .btn:hover {
             <button type="submit" class="btn btn-danger btn-lg">
               <i href="#checkout" class="bi bi-person-check"></i> Registrarme
             </button>
-</div> <!-- cierre del d-flex -->
-</form> <!-- cierre del form -->
-</div> <!-- cierre del card-body -->
-</div> <!-- cierre del card -->
-</div> 
+            </div> <!-- cierre del d-flex -->
+            </form> <!-- cierre del form -->
+            </div> <!-- cierre del card-body -->
+            </div> <!-- cierre del card -->
+            </div> 
           </section>
 
   <!-- Checkout -->
@@ -1017,12 +1017,31 @@ document.getElementById('regForm').addEventListener('submit', function (e) {
       'success',
       `Registro completado ✔️<br><b>${nombre}</b> ha sido registrado con el correo <b>${correo}</b>.`
     );
+
+    // Guardar datos temporalmente (para mostrar en checkout)
+    localStorage.setItem('xam_user', JSON.stringify({ nombre, correo }));
+
+    // Reiniciar formulario
     this.reset();
+
+    // Esperar un momento y mover al checkout
+    setTimeout(() => {
+      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+      toast('Ahora puedes proceder al pago');
+    }, 1000);
   }, 900);
 });
 
 function showRegResult(type, msg) {
-  const el = document.getElementById('regResult');
+  // Si no existe el contenedor, lo crea automáticamente
+  let el = document.getElementById('regResult');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'regResult';
+    el.className = 'alert mt-3';
+    document.querySelector('#regForm').appendChild(el);
+  }
+
   el.className = 'alert alert-' + type;
   el.innerHTML = msg;
   el.classList.remove('d-none');
@@ -1180,6 +1199,7 @@ function showRegResult(type, msg) {
 
 </html>
 -->
+
 
 
 
