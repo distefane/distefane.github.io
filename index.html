@@ -829,37 +829,6 @@ header#home .btn:hover {
     document.getElementById('year').textContent = new Date().getFullYear();
     refreshCartUI();
 
-    // ===== Registro simulado =====
-document.getElementById('regForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const fd = new FormData(this);
-  const nombre = fd.get('nombre');
-  const correo = fd.get('correo');
-  const pass = fd.get('password');
-  const confirm = fd.get('confirmar');
-
-  if (pass !== confirm) {
-    showRegResult('danger', 'Las contraseñas no coinciden.');
-    return;
-  }
-
-  showRegResult('info', 'Procesando registro simulado…');
-  setTimeout(() => {
-    showRegResult(
-      'success',
-      `Registro completado ✔️<br><b>${nombre}</b> ha sido registrado con el correo <b>${correo}</b>.`
-    );
-    this.reset();
-  }, 900);
-});
-
-function showRegResult(type, msg) {
-  const el = document.getElementById('regResult');
-  el.className = 'alert alert-' + type;
-  el.innerHTML = msg;
-  el.classList.remove('d-none');
-}
-
     // adding
     // ====== PAGINACIÓN DE PRODUCTOS ======
 const ITEMS_PER_PAGE = 6;
@@ -907,6 +876,36 @@ function renderProducts(page = 1) {
       </li>
     `);
   }
+     // ===== Registro simulado =====
+document.getElementById('regForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const fd = new FormData(this);
+  const nombre = fd.get('nombre');
+  const correo = fd.get('correo');
+  const pass = fd.get('password');
+  const confirm = fd.get('confirmar');
+
+  if (pass !== confirm) {
+    showRegResult('danger', 'Las contraseñas no coinciden.');
+    return;
+  }
+
+  showRegResult('info', 'Procesando registro simulado…');
+  setTimeout(() => {
+    showRegResult(
+      'success',
+      `Registro completado ✔️<br><b>${nombre}</b> ha sido registrado con el correo <b>${correo}</b>.`
+    );
+    this.reset();
+  }, 900);
+});
+
+function showRegResult(type, msg) {
+  const el = document.getElementById('regResult');
+  el.className = 'alert alert-' + type;
+  el.innerHTML = msg;
+  el.classList.remove('d-none');
+
 }
 
 // Render inicial
@@ -1063,6 +1062,7 @@ renderProducts();
 
 </html>
 -->
+
 
 
 
