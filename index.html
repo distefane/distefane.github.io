@@ -4,140 +4,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MayaCode | Tienda</title>
-  <meta name="description" content="Tienda con carrito y pago simulado. Embebible en Google Sites." />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <style>
-    :root { --mc-accent:#4F46E5; }
-    .brand-gradient{background:linear-gradient(135deg,#4F46E5,#0EA5E9);} 
-    .rounded-2xl{border-radius:1.25rem!important}
-    .shadow-soft{box-shadow:0 10px 30px rgba(0,0,0,.08)}
-    .price{font-weight:700;font-size:1.1rem}
-    .badge-qs{background:rgba(79,70,229,.1);color:#4F46E5}
-    .pagination button{border:none;background:#fff;color:#4F46E5;font-weight:600;margin:0 .25rem;cursor:pointer}
-    .pagination button.active{background:#4F46E5;color:#fff;border-radius:6px;padding:0.25rem 0.75rem}
-  </style>
-</head>
-<body>
-  <header class="py-5 brand-gradient text-white text-center">
-    <div class="container">
-      <h1 class="fw-bold mb-3">Tienda MayaCode</h1>
-      <p class="lead">Explora nuestra selección de productos. Compra simulada con carrito y pago con tarjeta.</p>
-    </div>
-  </header>
-
-  <section id="productos" class="py-5 bg-light">
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-end mb-4">
-        <div>
-          <h2 class="fw-bold mb-1">Productos Disponibles</h2>
-          <p class="text-muted mb-0">Todos los precios en Quetzales (Q)</p>
-        </div>
-      </div>
-      <div id="productGrid" class="row g-4"></div>
-      <div class="d-flex justify-content-center mt-4 pagination" id="pagination"></div>
-    </div>
-  </section>
-
-  <footer class="py-4 border-top text-center">
-    <p class="mb-0">© <span id="year"></span> MayaCode · Demostración académica</p>
-  </footer>
-
-  <script>
-    const products = [
-      {id:'p1',name:'Audífonos Sony WH-1000XM4',price:2799,img:'https://m.media-amazon.com/images/I/61D4Z3yKPAL._AC_SL1500_.jpg'},
-      {id:'p2',name:'Celular Samsung Galaxy S23',price:6499,img:'https://m.media-amazon.com/images/I/61Fj93pG0BL._AC_SL1500_.jpg'},
-      {id:'p3',name:'Laptop HP Pavilion 15',price:5599,img:'https://m.media-amazon.com/images/I/71lYhcc++AL._AC_SL1500_.jpg'},
-      {id:'p4',name:'Consola PlayStation 5',price:7899,img:'https://m.media-amazon.com/images/I/619BkvKW35L._AC_SL1500_.jpg'},
-      {id:'p5',name:'Smartwatch Apple Watch SE',price:2399,img:'https://m.media-amazon.com/images/I/71PIuO5g6-L._AC_SL1500_.jpg'},
-      {id:'p6',name:'Televisor LG OLED 55"',price:9999,img:'https://m.media-amazon.com/images/I/91nK7T9Wb2L._AC_SL1500_.jpg'},
-      {id:'p7',name:'Refrigeradora Samsung 18 pies',price:8499,img:'https://m.media-amazon.com/images/I/61hHaxbhqHL._AC_SL1500_.jpg'},
-      {id:'p8',name:'Microondas Panasonic 1.2 pies',price:999,img:'https://m.media-amazon.com/images/I/61A-HjzA2VL._AC_SL1500_.jpg'},
-      {id:'p9',name:'Audífonos Skullcandy Crusher Evo',price:1899,img:'https://m.media-amazon.com/images/I/61AiQ3M6ZHL._AC_SL1500_.jpg'},
-      {id:'p10',name:'Laptop Lenovo IdeaPad 3',price:4299,img:'https://m.media-amazon.com/images/I/71cVZyV+X-L._AC_SL1500_.jpg'},
-      {id:'p11',name:'Smart TV Samsung 50" UHD',price:4899,img:'https://m.media-amazon.com/images/I/71LJJrKbezL._AC_SL1500_.jpg'},
-      {id:'p12',name:'Consola Nintendo Switch OLED',price:3999,img:'https://m.media-amazon.com/images/I/61-PblYntsL._AC_SL1500_.jpg'},
-      {id:'p13',name:'Celular iPhone 14 Pro',price:10499,img:'https://m.media-amazon.com/images/I/61bK6PMOC3L._AC_SL1500_.jpg'},
-      {id:'p14',name:'Tablet Samsung Galaxy Tab S9',price:4999,img:'https://m.media-amazon.com/images/I/61FF3sGWv8L._AC_SL1500_.jpg'},
-      {id:'p15',name:'Parlante JBL Charge 5',price:1499,img:'https://m.media-amazon.com/images/I/61uxV7u7r8L._AC_SL1500_.jpg'},
-      {id:'p16',name:'Monitor Dell 27" QHD',price:3299,img:'https://m.media-amazon.com/images/I/61L02xP0RFL._AC_SL1500_.jpg'},
-      {id:'p17',name:'Teclado Mecánico Logitech G Pro',price:999,img:'https://m.media-amazon.com/images/I/71Voq7XcRGL._AC_SL1500_.jpg'},
-      {id:'p18',name:'Mouse Gamer Razer DeathAdder V2',price:699,img:'https://m.media-amazon.com/images/I/61LtuGzXeaL._AC_SL1500_.jpg'},
-      {id:'p19',name:'Impresora Epson EcoTank L3250',price:1699,img:'https://m.media-amazon.com/images/I/71mboZOnTGL._AC_SL1500_.jpg'},
-      {id:'p20',name:'Parrilla Eléctrica Oster',price:799,img:'https://m.media-amazon.com/images/I/81UZqJHYf7L._AC_SL1500_.jpg'},
-      {id:'p21',name:'Ventilador de Torre Honeywell',price:649,img:'https://m.media-amazon.com/images/I/71Ew3akfX9L._AC_SL1500_.jpg'},
-      {id:'p22',name:'Cámara Canon EOS Rebel T7',price:4899,img:'https://m.media-amazon.com/images/I/81qH6+e+I5L._AC_SL1500_.jpg'},
-      {id:'p23',name:'Bocina Alexa Echo Dot 5',price:799,img:'https://m.media-amazon.com/images/I/71ofh4zMyRL._AC_SL1500_.jpg'},
-      {id:'p24',name:'Cafetera Nespresso Vertuo',price:1299,img:'https://m.media-amazon.com/images/I/61DyP2ehytL._AC_SL1500_.jpg'},
-      {id:'p25',name:'Plancha Black+Decker SteamAdvantage',price:449,img:'https://m.media-amazon.com/images/I/71wRhS4oI-L._AC_SL1500_.jpg'},
-      {id:'p26',name:'Cargador Inalámbrico Samsung',price:399,img:'https://m.media-amazon.com/images/I/71Zs9bvu63L._AC_SL1500_.jpg'},
-      {id:'p27',name:'Disco Duro Externo Seagate 2TB',price:899,img:'https://m.media-amazon.com/images/I/61IbDShx3oL._AC_SL1500_.jpg'},
-      {id:'p28',name:'Router Wi-Fi TP-Link Archer AX10',price:699,img:'https://m.media-amazon.com/images/I/61eA5ITRZkL._AC_SL1500_.jpg'},
-      {id:'p29',name:'Smartwatch Huawei GT 3',price:2199,img:'https://m.media-amazon.com/images/I/61UloA3ZTPL._AC_SL1500_.jpg'},
-      {id:'p30',name:'Auriculares Bose QuietComfort 45',price:2899,img:'https://m.media-amazon.com/images/I/61pZyTuNDLL._AC_SL1500_.jpg'}
-    ];
-
-    const perPage = 12;
-    let currentPage = 1;
-
-    function renderProducts(){
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = '';
-      const start = (currentPage-1)*perPage;
-      const end = start + perPage;
-      const pageProducts = products.slice(start,end);
-      pageProducts.forEach(p=>{
-        const col = document.createElement('div');
-        col.className='col-12 col-md-6 col-lg-4';
-        col.innerHTML=`
-        <div class='card h-100 shadow-soft rounded-2xl'>
-          <img src='${p.img}' class='card-img-top' alt='${p.name}'>
-          <div class='card-body d-flex flex-column'>
-            <h5 class='card-title'>${p.name}</h5>
-            <p class='card-text small mb-2'>Producto de alta calidad disponible en MayaCode.</p>
-            <div class='d-flex justify-content-between align-items-center mt-auto'>
-              <span class='price'>Q ${p.price}</span>
-              <button class='btn btn-primary'><i class='bi bi-cart-plus'></i> Agregar</button>
-            </div>
-          </div>
-        </div>`;
-        grid.appendChild(col);
-      });
-      renderPagination();
-    }
-
-    function renderPagination(){
-      const totalPages = Math.ceil(products.length/perPage);
-      const pag = document.getElementById('pagination');
-      pag.innerHTML='';
-      for(let i=1;i<=totalPages;i++){
-        const btn=document.createElement('button');
-        btn.textContent=i;
-        btn.className=i===currentPage?'active':'';
-        btn.onclick=()=>{currentPage=i;renderProducts();}
-        pag.appendChild(btn);
-      }
-    }
-
-    document.getElementById('year').textContent=new Date().getFullYear();
-    renderProducts();
-  </script>
-</body>
-</html>
-<!--
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MayaCode | Tienda de Software</title>
   <meta name="description" content="Tienda demo de MayaCode con carrito y pago simulado. Embebible en Google Sites." />
   <!-- Bootstrap 5 -->
-<!-- --------------------------------------------------------------------------
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- (Opcional) Bootstrap Icons -->
-<!--  ----------------------------------------------------------------------------
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <style>
     :root { --mc-accent:#4F46E5; }
@@ -155,7 +26,6 @@
 </head>
 <body>
   <!-- Navbar -->
-<!--  ---------------------------------------------------------------------------
   <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#home">
@@ -180,7 +50,6 @@
   </nav>
 
   <!-- Hero -->
-<!-- ---------------------------------------------------------------------------
   <header id="home" class="py-5 brand-gradient text-white">
     <div class="container py-4">
       <div class="row align-items-center g-4">
@@ -197,7 +66,6 @@
   </header>
 
   <!-- Productos -->
-<!-- --------------------------------------------------------------------------
   <section id="productos" class="py-5 bg-light">
     <div class="container">
       <div class="d-flex justify-content-between align-items-end mb-4">
@@ -210,7 +78,6 @@
 
       <div class="row g-4">
         <!-- Producto 1 -->
-<!-- -----------------------------------------------------------------------------
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-soft rounded-2xl">
             <img src="https://i.pinimg.com/736x/da/73/9a/da739aa3d1fa96ba5418e4829155832d.jpg" class="card-img-top" alt="Inventario Express"/>
@@ -225,7 +92,6 @@
           </div>
         </div>
         <!-- Producto 2 -->
-<!-- -----------------------------------------------------------
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-soft rounded-2xl">
             <img src="https://i.pinimg.com/736x/d1/be/49/d1be492a2e0de3605d49ddfc604a30d6.jpg" class="card-img-top" alt="Sitio Express"/>
@@ -240,7 +106,6 @@
           </div>
         </div>
         <!-- Producto 3 -->
-<!-- ----------------------------------------------------------------------------
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-soft rounded-2xl">
             <img src="https://i.pinimg.com/1200x/30/0d/c9/300dc97960d1a89943538da53942c891.jpg" class="card-img-top" alt="Turnos Móvil"/>
@@ -259,7 +124,6 @@
   </section>
 
   <!-- Carrito -->
-<!-- ----------------------------------------------------------------------
   <section id="carrito" class="py-5">
     <div class="container">
       <h2 class="fw-bold mb-3">Carrito</h2>
@@ -309,7 +173,6 @@
   </section>
 
   <!-- Checkout -->
-<!-- -------------------------------------------------------------------
   <section id="checkout" class="py-5 bg-light">
     <div class="container">
       <h2 class="fw-bold mb-3">Checkout (Simulado)</h2>
@@ -350,7 +213,6 @@
           </form>
           
           <!-- Resultado del pago simulado -->
-<!-- -------------------------------------------
           <div id="payResult" class="alert d-none mt-3" role="alert"></div>
         </div>
       </div>
@@ -360,7 +222,6 @@
   </section>
 
   <!-- FAQ / Contacto -->
-<!-- ------------------------------------------------------------
 <section id="faq" class="py-5">
 <div class="container">
 <div class="row g-4">
@@ -421,7 +282,6 @@
   </footer>
 
   <!-- Bootstrap JS -->
-<!-- ------------------------------------------------------------------------------------------
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <script>
@@ -714,6 +574,7 @@
 
 </html>
 -->
+
 
 
 
