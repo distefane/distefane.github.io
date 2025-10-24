@@ -150,6 +150,56 @@
   .cart-empty {
     opacity: 0.8;
   }
+    /* === HERO PRINCIPAL === */
+header#home {
+  background: linear-gradient(135deg, #b0060f, #E50914);
+  color: white;
+}
+header#home h1 {
+  color: #fff;
+  font-weight: 800;
+}
+header#home p {
+  color: #f5f5f5;
+}
+header#home .btn {
+  background-color: white;
+  color: #b0060f;
+  font-weight: 600;
+  border: none;
+  transition: all 0.2s ease;
+}
+header#home .btn:hover {
+  background-color: #b0060f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* === PAGINACIÓN === */
+.pagination {
+  --bs-pagination-bg: #1c1c1c;
+  --bs-pagination-border-color: #2e2e2e;
+  --bs-pagination-hover-bg: #b0060f;
+  --bs-pagination-hover-color: #fff;
+  --bs-pagination-active-bg: #E50914;
+  --bs-pagination-active-border-color: #E50914;
+  --bs-pagination-active-color: #fff;
+}
+.page-link {
+  background-color: #1c1c1c;
+  color: #E50914;
+  border: 1px solid #2e2e2e;
+}
+.page-link:hover {
+  background-color: #b0060f;
+  color: #fff;
+}
+.page-item.active .page-link {
+  background-color: #E50914;
+  border-color: #E50914;
+  color: white;
+}
+
 </style>
 
 </head>
@@ -188,7 +238,7 @@
           <a href="#productos" class="btn btn-light btn-lg shadow-soft">Ver productos</a>
         </div>
         <div class="col-12 col-lg-5 text-center">
-          <img class="img-fluid rounded-2xl shadow-soft" src="https://i.pinimg.com/1200x/2d/99/00/2d990083fa2b27761abda7d10e76c5fb.jpg" alt="Electrónicos Xam" />
+          <img class="img-fluid rounded-2xl shadow-soft" src="https://i.pinimg.com/1200x/61/20/a8/6120a8c1fc8568743f89b98396a600af.jpg" alt="Electrónicos Xam" />
         </div>
       </div>
     </div>
@@ -928,6 +978,7 @@ renderProducts();
 
 </html>
 -->
+
 
 
 
