@@ -251,17 +251,78 @@
     //  p3: { id: 'p3', name: 'Turnos Móvil (Citas Básicas)', price: 699, img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop' }
     //};
     const PRODUCTS = {
-      p1: { id: 'p1', name: 'Audífonos Sony WH-1000XM5', price: 4500, img: 'https://m.media-amazon.com/images/I/61d5eK6jzDL._AC_SL1500_.jpg' },
-      p2: { id: 'p2', name: 'Audífonos Sony WH-CH520', price: 600, img: 'https://m.media-amazon.com/images/I/61m2nNRv5tL._AC_SL1500_.jpg' },
-      p3: { id: 'p3', name: 'Audífonos Skullcandy Dime 3', price: 395, img: 'https://m.media-amazon.com/images/I/61AiQ3M6ZHL._AC_SL1500_.jpg' },
-      p4: { id: 'p4', name: 'Samsung Galaxy Watch 8 Classic', price: 2800, img: 'https://m.media-amazon.com/images/I/71KfXK0QmCL._AC_SL1500_.jpg' },
-      p5: { id: 'p5', name: 'Batidora Kitchen Aid', price: 3500, img: 'https://m.media-amazon.com/images/I/61F2e4n4pFL._AC_SL1500_.jpg' },
-      p6: { id: 'p6', name: 'Licuadora NB600', price: 1000, img: 'https://m.media-amazon.com/images/I/71llDJwzWJL._AC_SL1500_.jpg' },
-      p7: { id: 'p7', name: 'Refrigeradora LG InstaView', price: 9999, img: 'https://m.media-amazon.com/images/I/71oE6WJ4PkL._AC_SL1500_.jpg' },
-      p8: { id: 'p8', name: 'Horno Oster 45L', price: 1200, img: 'https://m.media-amazon.com/images/I/61C9Iom2OQL._AC_SL1500_.jpg' },
-      p9: { id: 'p9', name: 'Televisor Samsung Crystal UHD 55”', price: 5600, img: 'https://m.media-amazon.com/images/I/81O6fllZXkL._AC_SL1500_.jpg' },
-      p10: { id: 'p10', name: 'Consola Nintendo Switch OLED', price: 3999, img: 'https://m.media-amazon.com/images/I/71T0M1I4cmL._AC_SL1500_.jpg' }
+      p1: { 
+        id: 'p1', 
+        name: 'Audífonos Sony WH-1000XM5', 
+        price: 4500, 
+        img: 'https://m.media-amazon.com/images/I/61d5eK6jzDL._AC_SL1500_.jpg',
+        desc: 'Auriculares inalámbricos premium con cancelación activa de ruido, sonido Hi-Res y batería de hasta 30 h.'
+      },
+      p2: { 
+        id: 'p2', 
+        name: 'Audífonos Sony WH-CH520', 
+        price: 600, 
+        img: 'https://m.media-amazon.com/images/I/61m2nNRv5tL._AC_SL1500_.jpg',
+        desc: 'Ligero y cómodo diseño Bluetooth, micrófono integrado y autonomía de hasta 50 horas con carga rápida.'
+      },
+      p3: { 
+        id: 'p3', 
+        name: 'Audífonos Skullcandy Dime 3', 
+        price: 395, 
+        img: 'https://m.media-amazon.com/images/I/61AiQ3M6ZHL._AC_SL1500_.jpg',
+        desc: 'True Wireless compactos, resistentes al sudor y con hasta 20 horas de reproducción total con estuche.'
+      },
+      p4: { 
+        id: 'p4', 
+        name: 'Samsung Galaxy Watch 8 Classic', 
+        price: 2800, 
+        img: 'https://m.media-amazon.com/images/I/71KfXK0QmCL._AC_SL1500_.jpg',
+        desc: 'Reloj inteligente con monitoreo de salud avanzado, GPS, resistencia 5ATM y cuerpo de acero inoxidable.'
+      },
+      p5: { 
+        id: 'p5', 
+        name: 'Batidora Kitchen Aid', 
+        price: 3500, 
+        img: 'https://m.media-amazon.com/images/I/61F2e4n4pFL._AC_SL1500_.jpg',
+        desc: 'Batidora de pedestal clásica con tazón de acero inoxidable y 10 velocidades para mezclas perfectas.'
+      },
+      p6: { 
+        id: 'p6', 
+        name: 'Licuadora NB600', 
+        price: 1000, 
+        img: 'https://m.media-amazon.com/images/I/71llDJwzWJL._AC_SL1500_.jpg',
+        desc: 'Licuadora de alto rendimiento con motor 600 W, vaso 1.5 L y cuchillas de acero inoxidable.'
+      },
+      p7: { 
+        id: 'p7', 
+        name: 'Refrigeradora LG InstaView', 
+        price: 9999, 
+        img: 'https://m.media-amazon.com/images/I/71oE6WJ4PkL._AC_SL1500_.jpg',
+        desc: 'Refrigeradora con puerta InstaView, dispensador de agua y 22 pies cúbicos de capacidad.'
+      },
+      p8: { 
+        id: 'p8', 
+        name: 'Horno Oster 45L', 
+        price: 1200, 
+        img: 'https://m.media-amazon.com/images/I/61C9Iom2OQL._AC_SL1500_.jpg',
+        desc: 'Horno eléctrico 45 L con convección, temporizador y parrilla ajustable para una cocción uniforme.'
+      },
+      p9: { 
+        id: 'p9', 
+        name: 'Televisor Samsung Crystal UHD 55”', 
+        price: 5600, 
+        img: 'https://m.media-amazon.com/images/I/81O6fllZXkL._AC_SL1500_.jpg',
+        desc: 'Pantalla 4K UHD de 55”, procesador Crystal y HDR10+ para una experiencia cinematográfica en casa.'
+      },
+      p10: { 
+        id: 'p10', 
+        name: 'Consola Nintendo Switch OLED', 
+        price: 3999, 
+        img: 'https://m.media-amazon.com/images/I/71T0M1I4cmL._AC_SL1500_.jpg',
+        desc: 'Consola híbrida con pantalla OLED 7”, base con puerto LAN y soporte ajustable para modo sobremesa.'
+      }
     };
+
 
 
     // ===== Estado simple de carrito en localStorage =====
@@ -598,6 +659,7 @@ renderProducts();
 
 </html>
 -->
+
 
 
 
