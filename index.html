@@ -2,46 +2,78 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Mis Cronómetros</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
-    <!-- POPUP DE BIENVENIDA -->
+    <!-- =========================================
+         POPUP DE BIENVENIDA
+    ========================================== -->
 
-    <div id="welcomeModal" class="welcome-modal">
+    <div
+        id="welcomeModal"
+        class="welcome-modal"
+    >
 
         <div class="welcome-card">
 
             <div class="welcome-top">
+
                 <div>
-                    <p class="welcome-label" data-i18n="welcomeLabel">
+
+                    <p
+                        class="welcome-label"
+                        data-i18n="welcomeLabel"
+                    >
                         Información
                     </p>
 
                     <h2 data-i18n="welcomeTitle">
                         Bienvenido a Mis Cronómetros
                     </h2>
+
                 </div>
 
+
                 <div class="language-switcher">
-                    <button class="language-btn" data-lang="es">
+
+                    <button
+                        class="language-btn"
+                        data-lang="es"
+                    >
                         ES
                     </button>
 
-                    <button class="language-btn" data-lang="en">
+                    <button
+                        class="language-btn"
+                        data-lang="en"
+                    >
                         EN
                     </button>
+
                 </div>
+
             </div>
 
-            <p class="welcome-intro" data-i18n="welcomeIntro">
-                Esta herramienta te permite registrar cuánto tiempo dedicas
-                a diferentes actividades de forma sencilla.
+
+            <p
+                class="welcome-intro"
+                data-i18n="welcomeIntro"
+            >
+                Esta herramienta te permite registrar cuánto tiempo
+                dedicas a diferentes actividades de forma sencilla.
             </p>
 
 
@@ -52,8 +84,23 @@
                 </h3>
 
                 <p data-i18n="howText">
-                    Puedes crear varios cronómetros y asignarle un nombre a cada uno.
-                    Por ejemplo: Estudiar, Trabajo, Proyecto EPS o cualquier otra actividad.
+                    Puedes crear varios cronómetros y asignarle
+                    un nombre a cada uno.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-section">
+
+                <h3 data-i18n="timerInfoTitle">
+                    Temporizador general
+                </h3>
+
+                <p data-i18n="timerInfoText">
+                    También puedes configurar una cuenta regresiva.
+                    Cuando llegue a cero, escucharás una alarma suave
+                    mientras la página permanezca abierta.
                 </p>
 
             </div>
@@ -66,6 +113,7 @@
                 </h3>
 
                 <ul>
+
                     <li data-i18n="feature1">
                         Crear todos los cronómetros que necesites.
                     </li>
@@ -89,6 +137,7 @@
                     <li data-i18n="feature6">
                         Eliminar actividades que ya no quieras conservar.
                     </li>
+
                 </ul>
 
             </div>
@@ -101,13 +150,12 @@
                 </h3>
 
                 <p data-i18n="storageText1">
-                    Los cronómetros se guardan en este navegador, por lo que
-                    puedes cerrar o recargar la página y tus actividades seguirán disponibles.
+                    Los cronómetros se guardan en este navegador.
                 </p>
 
                 <p data-i18n="storageText2">
-                    Si un cronómetro queda activo, continuará contabilizando
-                    el tiempo aunque cierres la página y regreses después.
+                    Si un cronómetro queda activo, continuará
+                    contabilizando el tiempo aunque recargues la página.
                 </p>
 
             </div>
@@ -120,8 +168,8 @@
                 </strong>
 
                 <span data-i18n="tipText">
-                    cuando cambies de actividad, pausa el cronómetro anterior
-                    e inicia el nuevo.
+                    cuando cambies de actividad, pausa el cronómetro
+                    anterior e inicia el nuevo.
                 </span>
 
             </div>
@@ -154,7 +202,10 @@
     </div>
 
 
-    <!-- APLICACIÓN -->
+
+    <!-- =========================================
+         APLICACIÓN
+    ========================================== -->
 
     <main class="container">
 
@@ -175,7 +226,9 @@
 
             <div class="header-actions">
 
-                <div class="language-switcher main-language-switcher">
+                <div
+                    class="language-switcher main-language-switcher"
+                >
 
                     <button
                         class="language-btn"
@@ -207,7 +260,176 @@
         </header>
 
 
-        <!-- LISTADO -->
+
+        <!-- =========================================
+             TEMPORIZADOR GENERAL
+        ========================================== -->
+
+        <section class="general-timer-card">
+
+            <div class="general-timer-header">
+
+                <div>
+
+                    <p
+                        class="section-label"
+                        data-i18n="countdownLabel"
+                    >
+                        Cuenta regresiva
+                    </p>
+
+                    <h2 data-i18n="countdownTitle">
+                        Temporizador general
+                    </h2>
+
+                    <p
+                        class="general-timer-description"
+                        data-i18n="countdownDescription"
+                    >
+                        Configura un tiempo y recibirás una alerta suave
+                        cuando termine.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="countdown-display-wrapper">
+
+                <div
+                    id="countdownDisplay"
+                    class="countdown-display"
+                >
+                    00:25:00
+                </div>
+
+                <p
+                    id="countdownStatus"
+                    class="countdown-status"
+                    data-i18n="countdownReady"
+                >
+                    Listo para iniciar
+                </p>
+
+            </div>
+
+
+            <div
+                id="countdownInputs"
+                class="countdown-inputs"
+            >
+
+                <div class="time-input-group">
+
+                    <label
+                        for="countdownHours"
+                        data-i18n="hours"
+                    >
+                        Horas
+                    </label>
+
+                    <input
+                        id="countdownHours"
+                        type="number"
+                        min="0"
+                        max="999"
+                        value="0"
+                    >
+
+                </div>
+
+
+                <div class="time-input-group">
+
+                    <label
+                        for="countdownMinutes"
+                        data-i18n="minutes"
+                    >
+                        Minutos
+                    </label>
+
+                    <input
+                        id="countdownMinutes"
+                        type="number"
+                        min="0"
+                        max="59"
+                        value="25"
+                    >
+
+                </div>
+
+
+                <div class="time-input-group">
+
+                    <label
+                        for="countdownSeconds"
+                        data-i18n="seconds"
+                    >
+                        Segundos
+                    </label>
+
+                    <input
+                        id="countdownSeconds"
+                        type="number"
+                        min="0"
+                        max="59"
+                        value="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="countdown-actions">
+
+                <button
+                    id="countdownStart"
+                    class="btn-start countdown-main-button"
+                    data-i18n="start"
+                >
+                    Iniciar
+                </button>
+
+
+                <button
+                    id="countdownReset"
+                    class="btn-secondary"
+                    data-i18n="reset"
+                >
+                    Reiniciar
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ACTIVIDADES
+        ========================================== -->
+
+        <div class="activities-header">
+
+            <div>
+
+                <p
+                    class="section-label"
+                    data-i18n="activitiesLabel"
+                >
+                    Actividades
+                </p>
+
+                <h2 data-i18n="activitiesTitle">
+                    Cronómetros
+                </h2>
+
+            </div>
+
+        </div>
+
 
         <section
             id="cronometros"
@@ -215,7 +437,10 @@
         ></section>
 
 
-        <!-- ESTADO VACÍO -->
+
+        <!-- =========================================
+             ESTADO VACÍO
+        ========================================== -->
 
         <div
             id="emptyState"
@@ -243,7 +468,10 @@
     </main>
 
 
-    <!-- MODAL CREAR / EDITAR -->
+
+    <!-- =========================================
+         MODAL CREAR / EDITAR
+    ========================================== -->
 
     <div
         id="modal"

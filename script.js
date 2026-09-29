@@ -6,9 +6,11 @@ const traducciones = {
 
     es: {
 
-        pageTitle: "Mis Cronómetros",
+        pageTitle:
+            "Mis Cronómetros",
 
-        appTitle: "Mis cronómetros",
+        appTitle:
+            "Mis cronómetros",
 
         appSubtitle:
             "Registra el tiempo que dedicas a cada actividad.",
@@ -24,6 +26,45 @@ const traducciones = {
 
         emptyText:
             "Crea uno para comenzar a registrar tu tiempo.",
+
+
+        /* SECCIONES */
+
+        activitiesLabel:
+            "Actividades",
+
+        activitiesTitle:
+            "Cronómetros",
+
+        countdownLabel:
+            "Cuenta regresiva",
+
+        countdownTitle:
+            "Temporizador general",
+
+        countdownDescription:
+            "Configura un tiempo y recibirás una alerta suave cuando termine.",
+
+        countdownReady:
+            "Listo para iniciar",
+
+        countdownRunning:
+            "Tiempo restante",
+
+        countdownPaused:
+            "Temporizador pausado",
+
+        countdownFinished:
+            "✓ Tiempo finalizado",
+
+        hours:
+            "Horas",
+
+        minutes:
+            "Minutos",
+
+        seconds:
+            "Segundos",
 
 
         /* BOTONES */
@@ -77,6 +118,9 @@ const traducciones = {
             nombre =>
                 `¿Seguro que deseas eliminar "${nombre}"?`,
 
+        invalidCountdown:
+            "Configura un tiempo mayor a 0 segundos.",
+
 
         /* BIENVENIDA */
 
@@ -94,6 +138,12 @@ const traducciones = {
 
         howText:
             "Puedes crear varios cronómetros y asignarle un nombre a cada uno. Por ejemplo: Estudiar, Trabajo, Proyecto EPS o cualquier otra actividad.",
+
+        timerInfoTitle:
+            "Temporizador general",
+
+        timerInfoText:
+            "También puedes configurar una cuenta regresiva. Cuando llegue a cero, escucharás una alarma suave mientras la página permanezca abierta.",
 
         featuresTitle:
             "¿Qué puedes hacer?",
@@ -123,7 +173,7 @@ const traducciones = {
             "Los cronómetros se guardan en este navegador, por lo que puedes cerrar o recargar la página y tus actividades seguirán disponibles.",
 
         storageText2:
-            "Si un cronómetro queda activo, continuará contabilizando el tiempo aunque cierres la página y regreses después.",
+            "Si un cronómetro queda activo, continuará contabilizando el tiempo aunque recargues la página.",
 
         tipTitle:
             "Consejo:",
@@ -161,6 +211,45 @@ const traducciones = {
 
         emptyText:
             "Create one to start tracking your time.",
+
+
+        /* SECTIONS */
+
+        activitiesLabel:
+            "Activities",
+
+        activitiesTitle:
+            "Timers",
+
+        countdownLabel:
+            "Countdown",
+
+        countdownTitle:
+            "General timer",
+
+        countdownDescription:
+            "Set a time and receive a gentle alert when it finishes.",
+
+        countdownReady:
+            "Ready to start",
+
+        countdownRunning:
+            "Time remaining",
+
+        countdownPaused:
+            "Timer paused",
+
+        countdownFinished:
+            "✓ Time finished",
+
+        hours:
+            "Hours",
+
+        minutes:
+            "Minutes",
+
+        seconds:
+            "Seconds",
 
 
         /* BUTTONS */
@@ -214,6 +303,9 @@ const traducciones = {
             nombre =>
                 `Are you sure you want to delete "${nombre}"?`,
 
+        invalidCountdown:
+            "Set a time greater than 0 seconds.",
+
 
         /* WELCOME */
 
@@ -231,6 +323,12 @@ const traducciones = {
 
         howText:
             "You can create multiple timers and give each one a name. For example: Study, Work, Project or any other activity.",
+
+        timerInfoTitle:
+            "General timer",
+
+        timerInfoText:
+            "You can also set a countdown. When it reaches zero, a gentle alarm will play while the page remains open.",
 
         featuresTitle:
             "What can you do?",
@@ -260,7 +358,7 @@ const traducciones = {
             "Your timers are stored in this browser, so you can close or refresh the page and your activities will still be available.",
 
         storageText2:
-            "If a timer is left running, it will continue counting time even if you close the page and return later.",
+            "If a timer is left running, it will continue counting even if you refresh the page.",
 
         tipTitle:
             "Tip:",
@@ -274,7 +372,9 @@ const traducciones = {
         welcomeButton:
             "Got it, start"
     }
+
 };
+
 
 
 /* =====================================================
@@ -284,25 +384,33 @@ const traducciones = {
 function detectarIdiomaInicial() {
 
     const idiomaGuardado =
-        localStorage.getItem("idioma");
+        localStorage.getItem(
+            "idioma"
+        );
+
 
     if (
         idiomaGuardado === "es" ||
         idiomaGuardado === "en"
     ) {
+
         return idiomaGuardado;
+
     }
+
 
     const idiomaNavegador =
         navigator.language ||
         navigator.userLanguage ||
         "es";
 
+
     return idiomaNavegador
         .toLowerCase()
         .startsWith("es")
-        ? "es"
-        : "en";
+            ? "es"
+            : "en";
+
 }
 
 
@@ -312,7 +420,9 @@ let idiomaActual =
 
 function t(clave) {
 
-    return traducciones[idiomaActual][clave];
+    return traducciones[
+        idiomaActual
+    ][clave];
 
 }
 
@@ -323,80 +433,1106 @@ function cambiarIdioma(idioma) {
         idioma !== "es" &&
         idioma !== "en"
     ) {
+
         return;
+
     }
 
-    idiomaActual = idioma;
+
+    idiomaActual =
+        idioma;
+
 
     localStorage.setItem(
         "idioma",
         idioma
     );
 
+
     document.documentElement.lang =
         idioma;
+
 
     actualizarTextosGenerales();
 
     renderizar();
+
+    actualizarEstadoTemporizador();
+
 }
 
 
+
 /* =====================================================
-   ELEMENTOS
+   ELEMENTOS GENERALES
 ===================================================== */
 
 const contenedor =
-    document.getElementById("cronometros");
+    document.getElementById(
+        "cronometros"
+    );
+
 
 const emptyState =
-    document.getElementById("emptyState");
+    document.getElementById(
+        "emptyState"
+    );
+
 
 const botonNuevo =
-    document.getElementById("nuevoCronometro");
+    document.getElementById(
+        "nuevoCronometro"
+    );
+
 
 const crearPrimero =
-    document.getElementById("crearPrimero");
+    document.getElementById(
+        "crearPrimero"
+    );
+
 
 const modal =
-    document.getElementById("modal");
+    document.getElementById(
+        "modal"
+    );
+
 
 const inputNombre =
-    document.getElementById("nombreCronometro");
+    document.getElementById(
+        "nombreCronometro"
+    );
+
 
 const guardar =
-    document.getElementById("guardar");
+    document.getElementById(
+        "guardar"
+    );
+
 
 const cancelar =
-    document.getElementById("cancelar");
+    document.getElementById(
+        "cancelar"
+    );
+
 
 const modalTitulo =
-    document.getElementById("modalTitulo");
+    document.getElementById(
+        "modalTitulo"
+    );
 
-
-/* BIENVENIDA */
-
-const welcomeModal =
-    document.getElementById("welcomeModal");
-
-const cerrarWelcome =
-    document.getElementById("cerrarWelcome");
-
-const noMostrarDeNuevo =
-    document.getElementById("noMostrarDeNuevo");
 
 
 /* =====================================================
-   DATOS
+   ELEMENTOS DEL POPUP
+===================================================== */
+
+const welcomeModal =
+    document.getElementById(
+        "welcomeModal"
+    );
+
+
+const cerrarWelcome =
+    document.getElementById(
+        "cerrarWelcome"
+    );
+
+
+const noMostrarDeNuevo =
+    document.getElementById(
+        "noMostrarDeNuevo"
+    );
+
+
+
+/* =====================================================
+   ELEMENTOS DEL TEMPORIZADOR
+===================================================== */
+
+const countdownDisplay =
+    document.getElementById(
+        "countdownDisplay"
+    );
+
+
+const countdownStatus =
+    document.getElementById(
+        "countdownStatus"
+    );
+
+
+const countdownHours =
+    document.getElementById(
+        "countdownHours"
+    );
+
+
+const countdownMinutes =
+    document.getElementById(
+        "countdownMinutes"
+    );
+
+
+const countdownSeconds =
+    document.getElementById(
+        "countdownSeconds"
+    );
+
+
+const countdownStart =
+    document.getElementById(
+        "countdownStart"
+    );
+
+
+const countdownReset =
+    document.getElementById(
+        "countdownReset"
+    );
+
+
+
+/* =====================================================
+   DATOS DE CRONÓMETROS
 ===================================================== */
 
 let cronometros =
     JSON.parse(
-        localStorage.getItem("cronometros")
+        localStorage.getItem(
+            "cronometros"
+        )
     ) || [];
 
 
-let editandoId = null;
+let editandoId =
+    null;
+
+
+
+/* =====================================================
+   TEMPORIZADOR GENERAL
+===================================================== */
+
+const countdownGuardado =
+    JSON.parse(
+        localStorage.getItem(
+            "temporizadorGeneral"
+        )
+    );
+
+
+let temporizador = countdownGuardado || {
+
+    duracionInicial:
+        25 * 60 * 1000,
+
+    tiempoRestante:
+        25 * 60 * 1000,
+
+    fin:
+        null,
+
+    activo:
+        false,
+
+    finalizado:
+        false
+
+};
+
+
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+let audioContext =
+    null;
+
+
+function prepararAudio() {
+
+    try {
+
+        if (!audioContext) {
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+
+        if (
+            audioContext.state ===
+            "suspended"
+        ) {
+
+            audioContext.resume();
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Audio no disponible:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ALARMA SUAVE
+===================================================== */
+
+function reproducirAlarma() {
+
+    prepararAudio();
+
+
+    if (!audioContext) {
+
+        return;
+
+    }
+
+
+    const ahora =
+        audioContext.currentTime;
+
+
+    reproducirTono(
+        660,
+        ahora,
+        0.55
+    );
+
+
+    reproducirTono(
+        820,
+        ahora + 0.7,
+        0.65
+    );
+
+
+    reproducirTono(
+        660,
+        ahora + 1.5,
+        0.55
+    );
+
+}
+
+
+function reproducirTono(
+    frecuencia,
+    inicio,
+    duracion
+) {
+
+    const oscillator =
+        audioContext
+            .createOscillator();
+
+
+    const gain =
+        audioContext
+            .createGain();
+
+
+    oscillator.type =
+        "sine";
+
+
+    oscillator.frequency
+        .setValueAtTime(
+            frecuencia,
+            inicio
+        );
+
+
+    gain.gain
+        .setValueAtTime(
+            0.0001,
+            inicio
+        );
+
+
+    gain.gain
+        .exponentialRampToValueAtTime(
+            0.07,
+            inicio + 0.05
+        );
+
+
+    gain.gain
+        .exponentialRampToValueAtTime(
+            0.0001,
+            inicio + duracion
+        );
+
+
+    oscillator.connect(
+        gain
+    );
+
+
+    gain.connect(
+        audioContext.destination
+    );
+
+
+    oscillator.start(
+        inicio
+    );
+
+
+    oscillator.stop(
+        inicio + duracion
+    );
+
+}
+
+
+
+/* =====================================================
+   GUARDAR TEMPORIZADOR
+===================================================== */
+
+function guardarTemporizador() {
+
+    localStorage.setItem(
+        "temporizadorGeneral",
+        JSON.stringify(
+            temporizador
+        )
+    );
+
+}
+
+
+
+/* =====================================================
+   LEER INPUTS TEMPORIZADOR
+===================================================== */
+
+function obtenerDuracionInputs() {
+
+    const horas =
+        Math.max(
+            0,
+            Number(
+                countdownHours.value
+            ) || 0
+        );
+
+
+    const minutos =
+        Math.min(
+            59,
+            Math.max(
+                0,
+                Number(
+                    countdownMinutes.value
+                ) || 0
+            )
+        );
+
+
+    const segundos =
+        Math.min(
+            59,
+            Math.max(
+                0,
+                Number(
+                    countdownSeconds.value
+                ) || 0
+            )
+        );
+
+
+    return (
+        horas * 3600000 +
+        minutos * 60000 +
+        segundos * 1000
+    );
+
+}
+
+
+
+/* =====================================================
+   ACTUALIZAR INPUTS DESDE DURACIÓN
+===================================================== */
+
+function cargarDuracionEnInputs(ms) {
+
+    const totalSegundos =
+        Math.floor(
+            ms / 1000
+        );
+
+
+    const horas =
+        Math.floor(
+            totalSegundos /
+            3600
+        );
+
+
+    const minutos =
+        Math.floor(
+            (
+                totalSegundos %
+                3600
+            ) /
+            60
+        );
+
+
+    const segundos =
+        totalSegundos %
+        60;
+
+
+    countdownHours.value =
+        horas;
+
+
+    countdownMinutes.value =
+        minutos;
+
+
+    countdownSeconds.value =
+        segundos;
+
+}
+
+
+
+/* =====================================================
+   FORMATEAR CUENTA REGRESIVA
+===================================================== */
+
+function formatearCountdown(ms) {
+
+    const segundosTotales =
+        Math.max(
+            0,
+            Math.ceil(
+                ms / 1000
+            )
+        );
+
+
+    const horas =
+        Math.floor(
+            segundosTotales /
+            3600
+        );
+
+
+    const minutos =
+        Math.floor(
+            (
+                segundosTotales %
+                3600
+            ) /
+            60
+        );
+
+
+    const segundos =
+        segundosTotales %
+        60;
+
+
+    return [
+        horas,
+        minutos,
+        segundos
+    ]
+        .map(
+            numero =>
+                String(numero)
+                    .padStart(
+                        2,
+                        "0"
+                    )
+        )
+        .join(":");
+
+}
+
+
+
+/* =====================================================
+   OBTENER TIEMPO RESTANTE REAL
+===================================================== */
+
+function obtenerTiempoRestante() {
+
+    if (
+        temporizador.activo &&
+        temporizador.fin
+    ) {
+
+        return Math.max(
+            0,
+            temporizador.fin -
+            Date.now()
+        );
+
+    }
+
+
+    return Math.max(
+        0,
+        temporizador.tiempoRestante
+    );
+
+}
+
+
+
+/* =====================================================
+   INICIAR / PAUSAR TEMPORIZADOR
+===================================================== */
+
+function alternarTemporizador() {
+
+    prepararAudio();
+
+
+    if (temporizador.activo) {
+
+        pausarTemporizador();
+
+    } else {
+
+        iniciarTemporizador();
+
+    }
+
+}
+
+
+function iniciarTemporizador() {
+
+    let tiempo;
+
+
+    if (
+        temporizador.finalizado ||
+        temporizador.tiempoRestante <= 0
+    ) {
+
+        tiempo =
+            obtenerDuracionInputs();
+
+
+        if (tiempo <= 0) {
+
+            alert(
+                t("invalidCountdown")
+            );
+
+            return;
+
+        }
+
+
+        temporizador.duracionInicial =
+            tiempo;
+
+
+        temporizador.tiempoRestante =
+            tiempo;
+
+
+        temporizador.finalizado =
+            false;
+
+    } else {
+
+        /*
+            Si nunca se ha iniciado o fue
+            reiniciado, tomamos el valor
+            actual de los inputs.
+        */
+
+        if (
+            !temporizador.fin &&
+            !temporizador.activo
+        ) {
+
+            const inputTiempo =
+                obtenerDuracionInputs();
+
+
+            if (
+                inputTiempo !==
+                temporizador.tiempoRestante
+            ) {
+
+                if (
+                    inputTiempo <= 0
+                ) {
+
+                    alert(
+                        t(
+                            "invalidCountdown"
+                        )
+                    );
+
+                    return;
+
+                }
+
+
+                temporizador
+                    .duracionInicial =
+                    inputTiempo;
+
+
+                temporizador
+                    .tiempoRestante =
+                    inputTiempo;
+
+            }
+
+        }
+
+    }
+
+
+    if (
+        temporizador
+            .tiempoRestante <= 0
+    ) {
+
+        alert(
+            t("invalidCountdown")
+        );
+
+        return;
+
+    }
+
+
+    temporizador.activo =
+        true;
+
+
+    temporizador.finalizado =
+        false;
+
+
+    temporizador.fin =
+        Date.now() +
+        temporizador
+            .tiempoRestante;
+
+
+    bloquearInputsTemporizador(
+        true
+    );
+
+
+    guardarTemporizador();
+
+    actualizarEstadoTemporizador();
+
+}
+
+
+
+/* =====================================================
+   PAUSAR TEMPORIZADOR
+===================================================== */
+
+function pausarTemporizador() {
+
+    temporizador.tiempoRestante =
+        obtenerTiempoRestante();
+
+
+    temporizador.activo =
+        false;
+
+
+    temporizador.fin =
+        null;
+
+
+    bloquearInputsTemporizador(
+        false
+    );
+
+
+    guardarTemporizador();
+
+    actualizarEstadoTemporizador();
+
+}
+
+
+
+/* =====================================================
+   REINICIAR TEMPORIZADOR
+===================================================== */
+
+function reiniciarTemporizador() {
+
+    temporizador.activo =
+        false;
+
+
+    temporizador.finalizado =
+        false;
+
+
+    temporizador.fin =
+        null;
+
+
+    temporizador.tiempoRestante =
+        temporizador
+            .duracionInicial;
+
+
+    cargarDuracionEnInputs(
+        temporizador
+            .duracionInicial
+    );
+
+
+    bloquearInputsTemporizador(
+        false
+    );
+
+
+    countdownDisplay
+        .classList.remove(
+            "finished"
+        );
+
+
+    guardarTemporizador();
+
+    actualizarEstadoTemporizador();
+
+}
+
+
+
+/* =====================================================
+   FINALIZAR TEMPORIZADOR
+===================================================== */
+
+function finalizarTemporizador() {
+
+    if (
+        temporizador.finalizado
+    ) {
+
+        return;
+
+    }
+
+
+    temporizador.activo =
+        false;
+
+
+    temporizador.finalizado =
+        true;
+
+
+    temporizador.fin =
+        null;
+
+
+    temporizador.tiempoRestante =
+        0;
+
+
+    guardarTemporizador();
+
+
+    bloquearInputsTemporizador(
+        false
+    );
+
+
+    countdownDisplay.textContent =
+        "00:00:00";
+
+
+    countdownDisplay
+        .classList.add(
+            "finished"
+        );
+
+
+    actualizarEstadoTemporizador();
+
+
+    reproducirAlarma();
+
+}
+
+
+
+/* =====================================================
+   BLOQUEAR INPUTS
+===================================================== */
+
+function bloquearInputsTemporizador(
+    bloquear
+) {
+
+    countdownHours.disabled =
+        bloquear;
+
+
+    countdownMinutes.disabled =
+        bloquear;
+
+
+    countdownSeconds.disabled =
+        bloquear;
+
+}
+
+
+
+/* =====================================================
+   ESTADO VISUAL TEMPORIZADOR
+===================================================== */
+
+function actualizarEstadoTemporizador() {
+
+    const restante =
+        obtenerTiempoRestante();
+
+
+    countdownDisplay.textContent =
+        formatearCountdown(
+            restante
+        );
+
+
+    countdownStatus.className =
+        "countdown-status";
+
+
+    if (
+        temporizador.finalizado
+    ) {
+
+        countdownStatus
+            .textContent =
+            t(
+                "countdownFinished"
+            );
+
+
+        countdownStatus
+            .classList.add(
+                "finished"
+            );
+
+
+        countdownStart
+            .textContent =
+            t("start");
+
+
+        return;
+
+    }
+
+
+    if (
+        temporizador.activo
+    ) {
+
+        countdownStatus
+            .textContent =
+            t(
+                "countdownRunning"
+            );
+
+
+        countdownStatus
+            .classList.add(
+                "running"
+            );
+
+
+        countdownStart
+            .textContent =
+            t("pause");
+
+
+        return;
+
+    }
+
+
+    if (
+        temporizador
+            .tiempoRestante <
+        temporizador
+            .duracionInicial
+    ) {
+
+        countdownStatus
+            .textContent =
+            t(
+                "countdownPaused"
+            );
+
+
+        countdownStart
+            .textContent =
+            t("start");
+
+
+        return;
+
+    }
+
+
+    countdownStatus
+        .textContent =
+        t(
+            "countdownReady"
+        );
+
+
+    countdownStart
+        .textContent =
+        t("start");
+
+}
+
+
+
+/* =====================================================
+   ACTUALIZAR TEMPORIZADOR EN VIVO
+===================================================== */
+
+function actualizarCountdown() {
+
+    if (
+        !temporizador.activo
+    ) {
+
+        return;
+
+    }
+
+
+    const restante =
+        obtenerTiempoRestante();
+
+
+    countdownDisplay.textContent =
+        formatearCountdown(
+            restante
+        );
+
+
+    if (
+        restante <= 0
+    ) {
+
+        finalizarTemporizador();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RECUPERAR TEMPORIZADOR AL RECARGAR
+===================================================== */
+
+function recuperarTemporizador() {
+
+    /*
+        Si estaba activo antes de
+        recargar, calculamos cuánto
+        tiempo realmente queda.
+    */
+
+    if (
+        temporizador.activo &&
+        temporizador.fin
+    ) {
+
+        const restante =
+            temporizador.fin -
+            Date.now();
+
+
+        if (
+            restante <= 0
+        ) {
+
+            temporizador.activo =
+                false;
+
+
+            temporizador.finalizado =
+                true;
+
+
+            temporizador.tiempoRestante =
+                0;
+
+
+            temporizador.fin =
+                null;
+
+
+            guardarTemporizador();
+
+        } else {
+
+            temporizador
+                .tiempoRestante =
+                restante;
+
+        }
+
+    }
+
+
+    cargarDuracionEnInputs(
+        temporizador
+            .duracionInicial
+    );
+
+
+    bloquearInputsTemporizador(
+        temporizador.activo
+    );
+
+
+    actualizarEstadoTemporizador();
+
+}
+
 
 
 /* =====================================================
@@ -408,82 +1544,108 @@ function actualizarTextosGenerales() {
     document.title =
         t("pageTitle");
 
+
     document
-        .querySelectorAll("[data-i18n]")
-        .forEach(elemento => {
+        .querySelectorAll(
+            "[data-i18n]"
+        )
+        .forEach(
+            elemento => {
 
-            const clave =
-                elemento.dataset.i18n;
+                const clave =
+                    elemento.dataset
+                        .i18n;
 
-            const traduccion =
-                traducciones[idiomaActual][clave];
 
-            if (
-                typeof traduccion === "string"
-            ) {
+                const traduccion =
+                    traducciones[
+                        idiomaActual
+                    ][clave];
 
-                elemento.textContent =
-                    traduccion;
+
+                if (
+                    typeof traduccion ===
+                    "string"
+                ) {
+
+                    elemento.textContent =
+                        traduccion;
+
+                }
 
             }
-
-        });
+        );
 
 
     inputNombre.placeholder =
-        t("inputPlaceholder");
+        t(
+            "inputPlaceholder"
+        );
 
 
     document
-        .querySelectorAll(".language-btn")
-        .forEach(boton => {
+        .querySelectorAll(
+            ".language-btn"
+        )
+        .forEach(
+            boton => {
 
-            boton.classList.toggle(
-                "active",
-                boton.dataset.lang ===
-                    idiomaActual
-            );
+                boton.classList
+                    .toggle(
+                        "active",
+                        boton.dataset
+                            .lang ===
+                            idiomaActual
+                    );
 
-        });
+            }
+        );
 
-
-    /*
-       El título del modal debe actualizarse
-       dependiendo de si estamos creando
-       o editando.
-    */
 
     if (
-        modal.classList.contains("show")
+        modal.classList
+            .contains(
+                "show"
+            )
     ) {
 
         modalTitulo.textContent =
             editandoId !== null
-                ? t("editTimerTitle")
-                : t("newTimerTitle");
+                ? t(
+                    "editTimerTitle"
+                )
+                : t(
+                    "newTimerTitle"
+                );
 
     } else {
 
         modalTitulo.textContent =
-            t("newTimerTitle");
+            t(
+                "newTimerTitle"
+            );
 
     }
 
 }
 
 
+
 /* =====================================================
-   GUARDAR DATOS
+   GUARDAR CRONÓMETROS
 ===================================================== */
 
 function guardarDatos() {
 
     localStorage.setItem(
         "cronometros",
-        JSON.stringify(cronometros)
+        JSON.stringify(
+            cronometros
+        )
     );
 
 }
+
 
 
 /* =====================================================
@@ -508,6 +1670,7 @@ function crearCronometro(nombre) {
 
         activo:
             false
+
     };
 
 
@@ -515,14 +1678,17 @@ function crearCronometro(nombre) {
         cronometro
     );
 
+
     guardarDatos();
 
     renderizar();
+
 }
 
 
+
 /* =====================================================
-   INICIAR
+   INICIAR CRONÓMETRO
 ===================================================== */
 
 function iniciar(id) {
@@ -538,11 +1704,15 @@ function iniciar(id) {
         !timer ||
         timer.activo
     ) {
+
         return;
+
     }
 
 
-    timer.activo = true;
+    timer.activo =
+        true;
+
 
     timer.inicio =
         Date.now();
@@ -551,11 +1721,13 @@ function iniciar(id) {
     guardarDatos();
 
     renderizar();
+
 }
 
 
+
 /* =====================================================
-   PAUSAR
+   PAUSAR CRONÓMETRO
 ===================================================== */
 
 function pausar(id) {
@@ -571,7 +1743,9 @@ function pausar(id) {
         !timer ||
         !timer.activo
     ) {
+
         return;
+
     }
 
 
@@ -580,11 +1754,13 @@ function pausar(id) {
 
 
     timer.tiempoAcumulado +=
-        ahora - timer.inicio;
+        ahora -
+        timer.inicio;
 
 
     timer.activo =
         false;
+
 
     timer.inicio =
         null;
@@ -593,11 +1769,13 @@ function pausar(id) {
     guardarDatos();
 
     renderizar();
+
 }
 
 
+
 /* =====================================================
-   REINICIAR
+   REINICIAR CRONÓMETRO
 ===================================================== */
 
 function reiniciar(id) {
@@ -610,7 +1788,9 @@ function reiniciar(id) {
 
 
     if (!timer) {
+
         return;
+
     }
 
 
@@ -629,11 +1809,13 @@ function reiniciar(id) {
     guardarDatos();
 
     renderizar();
+
 }
 
 
+
 /* =====================================================
-   ELIMINAR
+   ELIMINAR CRONÓMETRO
 ===================================================== */
 
 function eliminar(id) {
@@ -646,20 +1828,26 @@ function eliminar(id) {
 
 
     if (!timer) {
+
         return;
+
     }
 
 
     const confirmar =
         window.confirm(
-            t("deleteConfirm")(
+            t(
+                "deleteConfirm"
+            )(
                 timer.nombre
             )
         );
 
 
     if (!confirmar) {
+
         return;
+
     }
 
 
@@ -673,11 +1861,13 @@ function eliminar(id) {
     guardarDatos();
 
     renderizar();
+
 }
 
 
+
 /* =====================================================
-   EDITAR
+   EDITAR CRONÓMETRO
 ===================================================== */
 
 function editar(id) {
@@ -690,7 +1880,9 @@ function editar(id) {
 
 
     if (!timer) {
+
         return;
+
     }
 
 
@@ -703,17 +1895,22 @@ function editar(id) {
 
 
     modalTitulo.textContent =
-        t("editTimerTitle");
+        t(
+            "editTimerTitle"
+        );
 
 
     abrirModal();
 
+
     inputNombre.focus();
+
 }
 
 
+
 /* =====================================================
-   CALCULAR TIEMPO
+   CALCULAR TIEMPO CRONÓMETRO
 ===================================================== */
 
 function obtenerTiempo(timer) {
@@ -735,7 +1932,9 @@ function obtenerTiempo(timer) {
 
 
     return tiempo;
+
 }
+
 
 
 /* =====================================================
@@ -777,19 +1976,22 @@ function formatearTiempo(ms) {
         minutos,
         segundos
     ]
-        .map(numero =>
-            String(numero)
-                .padStart(
-                    2,
-                    "0"
-                )
+        .map(
+            numero =>
+                String(numero)
+                    .padStart(
+                        2,
+                        "0"
+                    )
         )
         .join(":");
+
 }
 
 
+
 /* =====================================================
-   RENDERIZAR
+   RENDERIZAR CRONÓMETROS
 ===================================================== */
 
 function renderizar() {
@@ -806,6 +2008,7 @@ function renderizar() {
             "block";
 
         return;
+
     }
 
 
@@ -846,8 +2049,12 @@ function renderizar() {
 
                         ${
                             timer.activo
-                                ? t("running")
-                                : t("paused")
+                                ? t(
+                                    "running"
+                                )
+                                : t(
+                                    "paused"
+                                )
                         }
 
                     </p>
@@ -861,7 +2068,9 @@ function renderizar() {
                 >
 
                     ${formatearTiempo(
-                        obtenerTiempo(timer)
+                        obtenerTiempo(
+                            timer
+                        )
                     )}
 
                 </div>
@@ -920,6 +2129,7 @@ function renderizar() {
                     </button>
 
                 </div>
+
             `;
 
 
@@ -929,11 +2139,13 @@ function renderizar() {
 
         }
     );
+
 }
 
 
+
 /* =====================================================
-   ACTUALIZAR SOLO LOS TIEMPOS
+   ACTUALIZAR CRONÓMETROS EN VIVO
 ===================================================== */
 
 function actualizarTiempos() {
@@ -941,8 +2153,12 @@ function actualizarTiempos() {
     cronometros.forEach(
         timer => {
 
-            if (!timer.activo) {
+            if (
+                !timer.activo
+            ) {
+
                 return;
+
             }
 
 
@@ -956,7 +2172,9 @@ function actualizarTiempos() {
 
                 elemento.textContent =
                     formatearTiempo(
-                        obtenerTiempo(timer)
+                        obtenerTiempo(
+                            timer
+                        )
                     );
 
             }
@@ -965,6 +2183,7 @@ function actualizarTiempos() {
     );
 
 }
+
 
 
 /* =====================================================
@@ -996,7 +2215,10 @@ function cerrarModal() {
 
 
     modalTitulo.textContent =
-        t("newTimerTitle");
+        t(
+            "newTimerTitle"
+        );
+
 }
 
 
@@ -1007,7 +2229,9 @@ function nuevoCronometro() {
 
 
     modalTitulo.textContent =
-        t("newTimerTitle");
+        t(
+            "newTimerTitle"
+        );
 
 
     inputNombre.value =
@@ -1026,6 +2250,7 @@ function nuevoCronometro() {
 }
 
 
+
 /* =====================================================
    GUARDAR CREACIÓN / EDICIÓN
 ===================================================== */
@@ -1041,10 +2266,13 @@ function guardarModal() {
     if (!nombre) {
 
         alert(
-            t("emptyNameAlert")
+            t(
+                "emptyNameAlert"
+            )
         );
 
         return;
+
     }
 
 
@@ -1082,7 +2310,9 @@ function guardarModal() {
 
 
     cerrarModal();
+
 }
+
 
 
 /* =====================================================
@@ -1102,11 +2332,90 @@ function escaparHTML(texto) {
 
 
     return elemento.innerHTML;
+
 }
 
 
+
 /* =====================================================
-   EVENTOS
+   EVENTOS DEL TEMPORIZADOR
+===================================================== */
+
+countdownStart
+    .addEventListener(
+        "click",
+        alternarTemporizador
+    );
+
+
+countdownReset
+    .addEventListener(
+        "click",
+        reiniciarTemporizador
+    );
+
+
+[
+    countdownHours,
+    countdownMinutes,
+    countdownSeconds
+]
+    .forEach(
+        input => {
+
+            input.addEventListener(
+                "change",
+                () => {
+
+                    if (
+                        temporizador.activo
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const nuevaDuracion =
+                        obtenerDuracionInputs();
+
+
+                    temporizador
+                        .duracionInicial =
+                        nuevaDuracion;
+
+
+                    temporizador
+                        .tiempoRestante =
+                        nuevaDuracion;
+
+
+                    temporizador
+                        .finalizado =
+                        false;
+
+
+                    countdownDisplay
+                        .classList
+                        .remove(
+                            "finished"
+                        );
+
+
+                    guardarTemporizador();
+
+                    actualizarEstadoTemporizador();
+
+                }
+            );
+
+        }
+    );
+
+
+
+/* =====================================================
+   EVENTOS DE CRONÓMETROS
 ===================================================== */
 
 guardar.addEventListener(
@@ -1174,7 +2483,10 @@ modal.addEventListener(
 );
 
 
-/* SELECTORES DE IDIOMA */
+
+/* =====================================================
+   IDIOMA
+===================================================== */
 
 document
     .querySelectorAll(
@@ -1188,7 +2500,8 @@ document
                 () => {
 
                     cambiarIdioma(
-                        boton.dataset.lang
+                        boton.dataset
+                            .lang
                     );
 
                 }
@@ -1196,6 +2509,7 @@ document
 
         }
     );
+
 
 
 /* =====================================================
@@ -1213,9 +2527,11 @@ if (
     "true"
 ) {
 
-    welcomeModal.classList.add(
-        "hidden"
-    );
+    welcomeModal
+        .classList
+        .add(
+            "hidden"
+        );
 
 }
 
@@ -1224,8 +2540,17 @@ cerrarWelcome.addEventListener(
     "click",
     () => {
 
+        /*
+            Esta interacción también ayuda
+            a habilitar audio en navegadores.
+        */
+
+        prepararAudio();
+
+
         if (
-            noMostrarDeNuevo.checked
+            noMostrarDeNuevo
+                .checked
         ) {
 
             localStorage.setItem(
@@ -1236,12 +2561,15 @@ cerrarWelcome.addEventListener(
         }
 
 
-        welcomeModal.classList.add(
-            "hidden"
-        );
+        welcomeModal
+            .classList
+            .add(
+                "hidden"
+            );
 
     }
 );
+
 
 
 /* =====================================================
@@ -1256,16 +2584,21 @@ actualizarTextosGenerales();
 
 renderizar();
 
+recuperarTemporizador();
 
-/*
-    Actualizamos la pantalla varias veces por segundo,
-    pero el tiempo real se obtiene con Date.now().
 
-    Esto evita que el cronómetro pierda precisión
-    cuando la pestaña queda en segundo plano.
-*/
+
+/* =====================================================
+   ACTUALIZACIÓN CONTINUA
+===================================================== */
 
 setInterval(
-    actualizarTiempos,
+    () => {
+
+        actualizarTiempos();
+
+        actualizarCountdown();
+
+    },
     250
 );

@@ -15,6 +15,7 @@ body {
         sans-serif;
 
     background: #f5f6f8;
+
     color: #222;
 }
 
@@ -25,22 +26,25 @@ input {
 
 .container {
     width: min(1000px, 92%);
-    margin: 50px auto;
+
+    margin: 50px auto 80px;
 }
 
 
-/* -----------------------
+/* =========================================
    HEADER
------------------------ */
+========================================= */
 
 header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     gap: 25px;
 
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 .header-text h1 {
@@ -57,15 +61,16 @@ header {
 
 .header-actions {
     display: flex;
+
     align-items: center;
 
     gap: 12px;
 }
 
 
-/* -----------------------
+/* =========================================
    BOTONES
------------------------ */
+========================================= */
 
 button {
     border: none;
@@ -94,6 +99,7 @@ button:active {
 
 .btn-primary {
     background: #222;
+
     color: white;
 }
 
@@ -103,6 +109,7 @@ button:active {
 
 .btn-secondary {
     background: #e8e8e8;
+
     color: #222;
 }
 
@@ -112,6 +119,7 @@ button:active {
 
 .btn-danger {
     background: #ffe7e7;
+
     color: #c62828;
 }
 
@@ -121,6 +129,7 @@ button:active {
 
 .btn-start {
     background: #e2f7ea;
+
     color: #13743d;
 }
 
@@ -130,6 +139,7 @@ button:active {
 
 .btn-pause {
     background: #fff3d9;
+
     color: #946200;
 }
 
@@ -139,6 +149,7 @@ button:active {
 
 .btn-edit {
     background: #edf1ff;
+
     color: #304fb5;
 }
 
@@ -147,9 +158,9 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
    SELECTOR DE IDIOMA
------------------------ */
+========================================= */
 
 .language-switcher {
     display: flex;
@@ -191,21 +202,231 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
+   ETIQUETAS DE SECCIÓN
+========================================= */
+
+.section-label {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    color: #999;
+}
+
+
+/* =========================================
+   TEMPORIZADOR GENERAL
+========================================= */
+
+.general-timer-card {
+    background: white;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    margin-bottom: 42px;
+
+    box-shadow:
+        0 3px 14px rgba(0, 0, 0, 0.035);
+}
+
+.general-timer-header h2 {
+    margin: 0 0 7px;
+
+    font-size: 22px;
+}
+
+.general-timer-description {
+    margin: 0;
+
+    color: #777;
+
+    line-height: 1.5;
+}
+
+.countdown-display-wrapper {
+    text-align: center;
+
+    margin: 35px 0 28px;
+}
+
+.countdown-display {
+    font-size: clamp(
+        48px,
+        9vw,
+        76px
+    );
+
+    font-weight: bold;
+
+    font-variant-numeric: tabular-nums;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+}
+
+.countdown-display.finished {
+    animation:
+        timerFinished 0.8s ease-in-out 3;
+}
+
+@keyframes timerFinished {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.035);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+.countdown-status {
+    margin: 12px 0 0;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.countdown-status.running {
+    color: #1b8a4c;
+}
+
+.countdown-status.finished {
+    color: #13743d;
+
+    font-weight: bold;
+}
+
+
+/* INPUTS */
+
+.countdown-inputs {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    max-width: 520px;
+
+    margin:
+        0 auto 20px;
+}
+
+.time-input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.time-input-group label {
+    color: #777;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+.time-input-group input {
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid #d8d8d8;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    background: #fafafa;
+}
+
+.time-input-group input:focus {
+    outline:
+        2px solid #222;
+
+    outline-offset: 1px;
+
+    background: white;
+}
+
+.time-input-group input:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* ACCIONES TEMPORIZADOR */
+
+.countdown-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.countdown-main-button {
+    min-width: 120px;
+}
+
+
+/* =========================================
+   CABECERA DE ACTIVIDADES
+========================================= */
+
+.activities-header {
+    margin-bottom: 16px;
+}
+
+.activities-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
    LISTA DE CRONÓMETROS
------------------------ */
+========================================= */
 
 .cronometros {
     display: flex;
+
     flex-direction: column;
 
     gap: 15px;
 }
 
 
-/* -----------------------
-   TARJETA
------------------------ */
+/* =========================================
+   TARJETA DE CRONÓMETRO
+========================================= */
 
 .timer-card {
     background: white;
@@ -280,16 +501,17 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
    ESTADO VACÍO
------------------------ */
+========================================= */
 
 .empty-state {
     text-align: center;
 
     background: white;
 
-    border: 2px dashed #ddd;
+    border:
+        2px dashed #ddd;
 
     border-radius: 14px;
 
@@ -298,6 +520,7 @@ button:active {
 
 .empty-state h2 {
     margin-top: 0;
+
     margin-bottom: 8px;
 }
 
@@ -308,9 +531,9 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
    MODAL CREAR / EDITAR
------------------------ */
+========================================= */
 
 .modal {
     position: fixed;
@@ -323,6 +546,7 @@ button:active {
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 20px;
@@ -338,6 +562,7 @@ button:active {
     background: white;
 
     width: 100%;
+
     max-width: 420px;
 
     padding: 25px;
@@ -359,7 +584,8 @@ button:active {
 
     font-size: 16px;
 
-    border: 1px solid #ccc;
+    border:
+        1px solid #ccc;
 
     border-radius: 8px;
 
@@ -367,7 +593,9 @@ button:active {
 }
 
 .modal-content input:focus {
-    outline: 2px solid #222;
+    outline:
+        2px solid #222;
+
     outline-offset: 1px;
 }
 
@@ -380,9 +608,9 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
    POPUP DE BIENVENIDA
------------------------ */
+========================================= */
 
 .welcome-modal {
     position: fixed;
@@ -395,6 +623,7 @@ button:active {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     padding: 20px;
@@ -408,6 +637,7 @@ button:active {
 
 .welcome-card {
     width: 100%;
+
     max-width: 620px;
 
     max-height: 90vh;
@@ -450,6 +680,7 @@ button:active {
 
 .welcome-card h2 {
     margin-top: 0;
+
     margin-bottom: 10px;
 
     font-size: 28px;
@@ -525,6 +756,7 @@ button:active {
 
 .welcome-checkbox input {
     width: 16px;
+
     height: 16px;
 
     cursor: pointer;
@@ -539,9 +771,9 @@ button:active {
 }
 
 
-/* -----------------------
+/* =========================================
    RESPONSIVE
------------------------ */
+========================================= */
 
 @media (max-width: 800px) {
 
@@ -574,13 +806,15 @@ button:active {
     .timer-actions {
         justify-content: flex-start;
     }
+
 }
 
 
 @media (max-width: 600px) {
 
     .container {
-        width: min(94%, 1000px);
+        width:
+            min(94%, 1000px);
 
         margin-top: 28px;
     }
@@ -601,6 +835,20 @@ button:active {
 
     .main-language-switcher {
         align-self: flex-start;
+    }
+
+    .general-timer-card {
+        padding: 22px 17px;
+    }
+
+    .countdown-inputs {
+        gap: 8px;
+    }
+
+    .time-input-group input {
+        padding: 10px 5px;
+
+        font-size: 16px;
     }
 
     .timer-actions {
@@ -627,4 +875,5 @@ button:active {
     .welcome-card h2 {
         font-size: 24px;
     }
+
 }
