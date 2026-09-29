@@ -2,11 +2,25 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background: #f5f6f8;
     color: #222;
+}
+
+button,
+input {
+    font-family: inherit;
 }
 
 .container {
@@ -14,39 +28,68 @@ body {
     margin: 50px auto;
 }
 
-/* HEADER */
+
+/* -----------------------
+   HEADER
+----------------------- */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+
+    gap: 25px;
+
     margin-bottom: 35px;
 }
 
-header h1 {
-    margin: 0 0 6px;
+.header-text h1 {
+    margin: 0 0 7px;
+
     font-size: 32px;
 }
 
-header p {
+.header-text p {
     margin: 0;
+
     color: #777;
 }
 
-/* BOTONES */
+.header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+/* -----------------------
+   BOTONES
+----------------------- */
 
 button {
     border: none;
+
     cursor: pointer;
+
     font-size: 14px;
+
     border-radius: 9px;
+
     padding: 10px 16px;
-    transition: 0.2s;
+
+    transition:
+        transform 0.15s,
+        background 0.15s,
+        opacity 0.15s;
 }
 
 button:hover {
     transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 .btn-primary {
@@ -63,42 +106,148 @@ button:hover {
     color: #222;
 }
 
+.btn-secondary:hover {
+    background: #dddddd;
+}
+
 .btn-danger {
     background: #ffe7e7;
     color: #c62828;
 }
 
-/* LISTA */
+.btn-danger:hover {
+    background: #ffd9d9;
+}
+
+.btn-start {
+    background: #e2f7ea;
+    color: #13743d;
+}
+
+.btn-start:hover {
+    background: #d5f2df;
+}
+
+.btn-pause {
+    background: #fff3d9;
+    color: #946200;
+}
+
+.btn-pause:hover {
+    background: #ffebc0;
+}
+
+.btn-edit {
+    background: #edf1ff;
+    color: #304fb5;
+}
+
+.btn-edit:hover {
+    background: #e0e7ff;
+}
+
+
+/* -----------------------
+   SELECTOR DE IDIOMA
+----------------------- */
+
+.language-switcher {
+    display: flex;
+
+    padding: 3px;
+
+    border-radius: 10px;
+
+    background: #ededed;
+}
+
+.language-btn {
+    min-width: 42px;
+
+    padding: 7px 10px;
+
+    background: transparent;
+
+    color: #777;
+
+    border-radius: 7px;
+}
+
+.language-btn:hover {
+    transform: none;
+
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.language-btn.active {
+    background: white;
+
+    color: #222;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+
+/* -----------------------
+   LISTA DE CRONÓMETROS
+----------------------- */
 
 .cronometros {
     display: flex;
     flex-direction: column;
+
     gap: 15px;
 }
 
-/* CRONÓMETRO */
+
+/* -----------------------
+   TARJETA
+----------------------- */
 
 .timer-card {
     background: white;
+
     border-radius: 14px;
+
     padding: 22px;
 
     display: grid;
-    grid-template-columns: 1fr auto auto;
+
+    grid-template-columns:
+        minmax(160px, 1fr)
+        auto
+        auto;
+
     align-items: center;
+
     gap: 25px;
 
     border: 1px solid #e8e8e8;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.025);
+}
+
+.timer-info {
+    min-width: 0;
 }
 
 .timer-info h2 {
-    margin: 0 0 6px;
+    margin: 0 0 7px;
+
     font-size: 18px;
+
+    overflow-wrap: anywhere;
 }
 
 .estado {
     margin: 0;
+
     font-size: 13px;
+
     color: #888;
 }
 
@@ -107,66 +256,78 @@ button:hover {
 }
 
 .timer-time {
-    font-size: 30px;
-    font-weight: bold;
-    font-variant-numeric: tabular-nums;
-    min-width: 150px;
+    min-width: 155px;
+
     text-align: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    font-variant-numeric: tabular-nums;
+
+    letter-spacing: 0.5px;
 }
 
 .timer-actions {
     display: flex;
+
     gap: 8px;
+
     flex-wrap: wrap;
+
+    justify-content: flex-end;
 }
 
-.btn-start {
-    background: #e2f7ea;
-    color: #13743d;
-}
 
-.btn-pause {
-    background: #fff3d9;
-    color: #946200;
-}
-
-.btn-edit {
-    background: #edf1ff;
-    color: #304fb5;
-}
-
-/* EMPTY */
+/* -----------------------
+   ESTADO VACÍO
+----------------------- */
 
 .empty-state {
     text-align: center;
+
     background: white;
+
     border: 2px dashed #ddd;
+
     border-radius: 14px;
+
     padding: 60px 20px;
 }
 
 .empty-state h2 {
+    margin-top: 0;
     margin-bottom: 8px;
 }
 
 .empty-state p {
     color: #777;
+
     margin-bottom: 25px;
 }
 
-/* MODAL */
+
+/* -----------------------
+   MODAL CREAR / EDITAR
+----------------------- */
 
 .modal {
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.35);
+    background:
+        rgba(0, 0, 0, 0.35);
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
     padding: 20px;
+
+    z-index: 5000;
 }
 
 .modal.show {
@@ -175,12 +336,16 @@ button:hover {
 
 .modal-content {
     background: white;
+
     width: 100%;
     max-width: 420px;
 
     padding: 25px;
 
     border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .modal-content h2 {
@@ -195,6 +360,7 @@ button:hover {
     font-size: 16px;
 
     border: 1px solid #ccc;
+
     border-radius: 8px;
 
     margin: 10px 0 20px;
@@ -202,41 +368,17 @@ button:hover {
 
 .modal-content input:focus {
     outline: 2px solid #222;
+    outline-offset: 1px;
 }
 
 .modal-buttons {
     display: flex;
+
     justify-content: flex-end;
+
     gap: 10px;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 700px) {
-
-    header {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    header button {
-        width: 100%;
-    }
-
-    .timer-card {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .timer-time {
-        text-align: left;
-        font-size: 32px;
-    }
-
-    .timer-actions button {
-        flex: 1;
-    }
-}
 
 /* -----------------------
    POPUP DE BIENVENIDA
@@ -244,11 +386,14 @@ button:hover {
 
 .welcome-modal {
     position: fixed;
+
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.55);
+    background:
+        rgba(0, 0, 0, 0.55);
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -262,20 +407,45 @@ button:hover {
 }
 
 .welcome-card {
-    background: white;
-
     width: 100%;
-    max-width: 600px;
+    max-width: 620px;
 
     max-height: 90vh;
+
     overflow-y: auto;
+
+    background: white;
 
     padding: 30px;
 
     border-radius: 18px;
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.20);
+        0 20px 55px rgba(0, 0, 0, 0.22);
+}
+
+.welcome-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.welcome-label {
+    margin: 0 0 5px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: bold;
+
+    color: #999;
 }
 
 .welcome-card h2 {
@@ -286,10 +456,11 @@ button:hover {
 }
 
 .welcome-intro {
-    color: #666;
-    line-height: 1.6;
-
     margin-bottom: 25px;
+
+    color: #666;
+
+    line-height: 1.6;
 }
 
 .welcome-section {
@@ -298,48 +469,56 @@ button:hover {
 
 .welcome-section h3 {
     margin-bottom: 8px;
+
     font-size: 17px;
 }
 
 .welcome-section p {
     margin: 6px 0;
+
     line-height: 1.6;
+
     color: #555;
 }
 
 .welcome-section ul {
     padding-left: 22px;
+
     margin-bottom: 0;
 }
 
 .welcome-section li {
     margin-bottom: 8px;
+
     line-height: 1.5;
+
     color: #555;
 }
 
 .welcome-tip {
-    background: #f4f5f7;
-
-    border-radius: 10px;
+    margin: 20px 0;
 
     padding: 14px 16px;
 
-    margin: 20px 0;
+    background: #f4f5f7;
+
+    border-radius: 10px;
 
     line-height: 1.5;
 }
 
 .welcome-checkbox {
     display: flex;
+
     align-items: center;
 
     gap: 8px;
 
-    font-size: 14px;
-    color: #666;
-
     margin-bottom: 18px;
+
+    font-size: 14px;
+
+    color: #666;
 
     cursor: pointer;
 }
@@ -347,11 +526,105 @@ button:hover {
 .welcome-checkbox input {
     width: 16px;
     height: 16px;
+
+    cursor: pointer;
 }
 
 .welcome-button {
     width: 100%;
+
     padding: 13px;
 
     font-size: 15px;
+}
+
+
+/* -----------------------
+   RESPONSIVE
+----------------------- */
+
+@media (max-width: 800px) {
+
+    header {
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .main-language-switcher {
+        align-self: flex-end;
+    }
+
+    .timer-card {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .timer-time {
+        text-align: left;
+
+        font-size: 32px;
+    }
+
+    .timer-actions {
+        justify-content: flex-start;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(94%, 1000px);
+
+        margin-top: 28px;
+    }
+
+    header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions > .btn-primary {
+        width: 100%;
+    }
+
+    .main-language-switcher {
+        align-self: flex-start;
+    }
+
+    .timer-actions {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        width: 100%;
+    }
+
+    .timer-actions button {
+        width: 100%;
+    }
+
+    .welcome-card {
+        padding: 22px;
+    }
+
+    .welcome-top {
+        flex-direction: column;
+    }
+
+    .welcome-card h2 {
+        font-size: 24px;
+    }
 }

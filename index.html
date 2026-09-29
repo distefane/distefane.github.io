@@ -10,97 +10,245 @@
 </head>
 
 <body>
-<div id="welcomeModal" class="welcome-modal">
-    <div class="welcome-card">
 
-        <h2>Bienvenido a Mis Cronómetros</h2>
+    <!-- POPUP DE BIENVENIDA -->
 
-        <p class="welcome-intro">
-            Esta herramienta te permite registrar cuánto tiempo dedicas a diferentes actividades de forma sencilla.
-        </p>
+    <div id="welcomeModal" class="welcome-modal">
 
-        <div class="welcome-section">
-            <h3>¿Cómo funciona?</h3>
+        <div class="welcome-card">
 
-            <p>
-                Puedes crear varios cronómetros y asignarle un nombre a cada uno,
-                por ejemplo: <strong>“Estudiar”</strong>, <strong>“Trabajo”</strong>,
-                <strong>“Proyecto EPS”</strong> o cualquier otra actividad.
-            </p>
-        </div>
+            <div class="welcome-top">
+                <div>
+                    <p class="welcome-label" data-i18n="welcomeLabel">
+                        Información
+                    </p>
 
-        <div class="welcome-section">
-            <h3>¿Qué puedes hacer?</h3>
+                    <h2 data-i18n="welcomeTitle">
+                        Bienvenido a Mis Cronómetros
+                    </h2>
+                </div>
 
-            <ul>
-                <li>Crear todos los cronómetros que necesites.</li>
-                <li>Iniciar y pausar cada cronómetro manualmente.</li>
-                <li>Tener varios cronómetros funcionando al mismo tiempo.</li>
-                <li>Editar el nombre de cada actividad.</li>
-                <li>Reiniciar un cronómetro cuando lo necesites.</li>
-                <li>Eliminar actividades que ya no quieras conservar.</li>
-            </ul>
-        </div>
+                <div class="language-switcher">
+                    <button class="language-btn" data-lang="es">
+                        ES
+                    </button>
 
-        <div class="welcome-section">
-            <h3>Tu información se guarda automáticamente</h3>
+                    <button class="language-btn" data-lang="en">
+                        EN
+                    </button>
+                </div>
+            </div>
 
-            <p>
-                Los cronómetros se guardan en este navegador, por lo que puedes
-                cerrar o recargar la página y tus actividades seguirán disponibles.
+            <p class="welcome-intro" data-i18n="welcomeIntro">
+                Esta herramienta te permite registrar cuánto tiempo dedicas
+                a diferentes actividades de forma sencilla.
             </p>
 
-            <p>
-                Si un cronómetro queda activo, continuará contabilizando el tiempo
-                aunque cierres la página y regreses después.
-            </p>
+
+            <div class="welcome-section">
+
+                <h3 data-i18n="howTitle">
+                    ¿Cómo funciona?
+                </h3>
+
+                <p data-i18n="howText">
+                    Puedes crear varios cronómetros y asignarle un nombre a cada uno.
+                    Por ejemplo: Estudiar, Trabajo, Proyecto EPS o cualquier otra actividad.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-section">
+
+                <h3 data-i18n="featuresTitle">
+                    ¿Qué puedes hacer?
+                </h3>
+
+                <ul>
+                    <li data-i18n="feature1">
+                        Crear todos los cronómetros que necesites.
+                    </li>
+
+                    <li data-i18n="feature2">
+                        Iniciar y pausar cada cronómetro manualmente.
+                    </li>
+
+                    <li data-i18n="feature3">
+                        Tener varios cronómetros funcionando al mismo tiempo.
+                    </li>
+
+                    <li data-i18n="feature4">
+                        Editar el nombre de cada actividad.
+                    </li>
+
+                    <li data-i18n="feature5">
+                        Reiniciar un cronómetro cuando lo necesites.
+                    </li>
+
+                    <li data-i18n="feature6">
+                        Eliminar actividades que ya no quieras conservar.
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="welcome-section">
+
+                <h3 data-i18n="storageTitle">
+                    Tu información se guarda automáticamente
+                </h3>
+
+                <p data-i18n="storageText1">
+                    Los cronómetros se guardan en este navegador, por lo que
+                    puedes cerrar o recargar la página y tus actividades seguirán disponibles.
+                </p>
+
+                <p data-i18n="storageText2">
+                    Si un cronómetro queda activo, continuará contabilizando
+                    el tiempo aunque cierres la página y regreses después.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-tip">
+
+                <strong data-i18n="tipTitle">
+                    Consejo:
+                </strong>
+
+                <span data-i18n="tipText">
+                    cuando cambies de actividad, pausa el cronómetro anterior
+                    e inicia el nuevo.
+                </span>
+
+            </div>
+
+
+            <label class="welcome-checkbox">
+
+                <input
+                    type="checkbox"
+                    id="noMostrarDeNuevo"
+                >
+
+                <span data-i18n="dontShow">
+                    No volver a mostrar esta información
+                </span>
+
+            </label>
+
+
+            <button
+                id="cerrarWelcome"
+                class="btn-primary welcome-button"
+                data-i18n="welcomeButton"
+            >
+                Entendido, empezar
+            </button>
+
         </div>
-
-        <div class="welcome-tip">
-            <strong>Consejo:</strong>
-            cuando cambies de actividad, pausa el cronómetro anterior e inicia el nuevo.
-        </div>
-
-        <label class="welcome-checkbox">
-            <input type="checkbox" id="noMostrarDeNuevo">
-            No volver a mostrar esta información
-        </label>
-
-        <button id="cerrarWelcome" class="btn-primary welcome-button">
-            Entendido, empezar
-        </button>
 
     </div>
-</div>
+
+
+    <!-- APLICACIÓN -->
+
     <main class="container">
 
         <header>
-            <div>
-                <h1>Mis cronómetros</h1>
-                <p>Registra el tiempo que dedicas a cada actividad.</p>
+
+            <div class="header-text">
+
+                <h1 data-i18n="appTitle">
+                    Mis cronómetros
+                </h1>
+
+                <p data-i18n="appSubtitle">
+                    Registra el tiempo que dedicas a cada actividad.
+                </p>
+
             </div>
 
-            <button id="nuevoCronometro" class="btn-primary">
-                + Nuevo cronómetro
-            </button>
+
+            <div class="header-actions">
+
+                <div class="language-switcher main-language-switcher">
+
+                    <button
+                        class="language-btn"
+                        data-lang="es"
+                    >
+                        ES
+                    </button>
+
+                    <button
+                        class="language-btn"
+                        data-lang="en"
+                    >
+                        EN
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="nuevoCronometro"
+                    class="btn-primary"
+                    data-i18n="newTimer"
+                >
+                    + Nuevo cronómetro
+                </button>
+
+            </div>
+
         </header>
 
-        <section id="cronometros" class="cronometros"></section>
 
-        <div id="emptyState" class="empty-state">
-            <h2>No tienes cronómetros</h2>
-            <p>Crea uno para comenzar a registrar tu tiempo.</p>
+        <!-- LISTADO -->
 
-            <button id="crearPrimero" class="btn-primary">
+        <section
+            id="cronometros"
+            class="cronometros"
+        ></section>
+
+
+        <!-- ESTADO VACÍO -->
+
+        <div
+            id="emptyState"
+            class="empty-state"
+        >
+
+            <h2 data-i18n="emptyTitle">
+                No tienes cronómetros
+            </h2>
+
+            <p data-i18n="emptyText">
+                Crea uno para comenzar a registrar tu tiempo.
+            </p>
+
+            <button
+                id="crearPrimero"
+                class="btn-primary"
+                data-i18n="createTimer"
+            >
                 Crear cronómetro
             </button>
+
         </div>
 
     </main>
 
-    <!-- MODAL -->
 
-    <div id="modal" class="modal">
+    <!-- MODAL CREAR / EDITAR -->
+
+    <div
+        id="modal"
+        class="modal"
+    >
 
         <div class="modal-content">
 
@@ -111,17 +259,25 @@
             <input
                 type="text"
                 id="nombreCronometro"
-                placeholder="Ej. Trabajar en informe EPS"
                 maxlength="80"
+                autocomplete="off"
             >
 
             <div class="modal-buttons">
 
-                <button id="cancelar" class="btn-secondary">
+                <button
+                    id="cancelar"
+                    class="btn-secondary"
+                    data-i18n="cancel"
+                >
                     Cancelar
                 </button>
 
-                <button id="guardar" class="btn-primary">
+                <button
+                    id="guardar"
+                    class="btn-primary"
+                    data-i18n="save"
+                >
                     Guardar
                 </button>
 
@@ -130,6 +286,7 @@
         </div>
 
     </div>
+
 
     <script src="script.js"></script>
 
