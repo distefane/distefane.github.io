@@ -1,60 +1,137 @@
-<!doctype html><html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Alquiler de Ofibodegas, Espacios Comerciales y Rentas Cortas | Multinegocios Creativos S.A.</title><meta name="description" content="Encuentra las mejores opciones en hospedaje de renta corta, alquiler de ofibodegas, bodegas y oficinas. Soluciones inmobiliarias integrales con Multinegocios Creativos S.A.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"><script defer src="app.js"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="assets/favicon1.png" type="image/x-icon">
+    <title>Mis Cronómetros</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
 
-</head><body>
-<header class="site-header inner">
-  <nav class="navbar container">
-    <a class="brand" href="index.html"><img src="assets/logo-mcsa.png" alt="Multinegocios Creativos S.A."></a>
-    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="nav-menu">
-      <a class="active" href="index.html">Inicio</a>
-      <a class="" href="hospedaje.html">Hospedaje</a>
-      <a class="" href="comercial.html">Comercial</a>
-      <a class="" href="proyectos.html">Proyectos</a>
-      <a class="" href="nosotros.html">Nosotros</a>
-      <a class="nav-cta " href="contacto.html">Contacto</a>
+<body>
+<div id="welcomeModal" class="welcome-modal">
+    <div class="welcome-card">
+
+        <h2>Bienvenido a Mis Cronómetros</h2>
+
+        <p class="welcome-intro">
+            Esta herramienta te permite registrar cuánto tiempo dedicas a diferentes actividades de forma sencilla.
+        </p>
+
+        <div class="welcome-section">
+            <h3>¿Cómo funciona?</h3>
+
+            <p>
+                Puedes crear varios cronómetros y asignarle un nombre a cada uno,
+                por ejemplo: <strong>“Estudiar”</strong>, <strong>“Trabajo”</strong>,
+                <strong>“Proyecto EPS”</strong> o cualquier otra actividad.
+            </p>
+        </div>
+
+        <div class="welcome-section">
+            <h3>¿Qué puedes hacer?</h3>
+
+            <ul>
+                <li>Crear todos los cronómetros que necesites.</li>
+                <li>Iniciar y pausar cada cronómetro manualmente.</li>
+                <li>Tener varios cronómetros funcionando al mismo tiempo.</li>
+                <li>Editar el nombre de cada actividad.</li>
+                <li>Reiniciar un cronómetro cuando lo necesites.</li>
+                <li>Eliminar actividades que ya no quieras conservar.</li>
+            </ul>
+        </div>
+
+        <div class="welcome-section">
+            <h3>Tu información se guarda automáticamente</h3>
+
+            <p>
+                Los cronómetros se guardan en este navegador, por lo que puedes
+                cerrar o recargar la página y tus actividades seguirán disponibles.
+            </p>
+
+            <p>
+                Si un cronómetro queda activo, continuará contabilizando el tiempo
+                aunque cierres la página y regreses después.
+            </p>
+        </div>
+
+        <div class="welcome-tip">
+            <strong>Consejo:</strong>
+            cuando cambies de actividad, pausa el cronómetro anterior e inicia el nuevo.
+        </div>
+
+        <label class="welcome-checkbox">
+            <input type="checkbox" id="noMostrarDeNuevo">
+            No volver a mostrar esta información
+        </label>
+
+        <button id="cerrarWelcome" class="btn-primary welcome-button">
+            Entendido, empezar
+        </button>
+
     </div>
-  </nav>
-</header>
-
-<main>
-<section class="hero-home"><div class="container hero-content reveal">
-<p class="eyebrow">Hospedaje · Comercio · Industria</p>
-<h1>Bienvenidos a Multinegocios Creativos S.A.</h1>
-<p>Soluciones inmobiliarias integrales para tu próximo viaje, unas vacaciones inolvidables o el espacio comercial ideal para expandir las operaciones de tu empresa.</p>
-<div class="actions"><a class="btn btn-gold" href="hospedaje.html">Ver opciones de hospedaje</a><a class="btn btn-outline" href="comercial.html">Ver ofibodegas y espacios comerciales</a></div>
-</div></section>
-<section class="section"><div class="container split">
-<div class="reveal"><p class="eyebrow">Soluciones a tu medida</p><h2>Ubicaciones privilegiadas e infraestructura de primer nivel</h2></div>
-<div class="lead reveal"><p>¿Buscas el lugar perfecto para tu próximo viaje de negocios, unas vacaciones inolvidables, o el espacio comercial ideal para expandir las operaciones de tu empresa? En Multinegocios Creativos S.A., nos especializamos en ofrecer un portafolio versátil y de alta calidad que se adapta exactamente a tus necesidades.</p><p>Nuestra amplia experiencia en el sector inmobiliario nos permite brindarte soluciones estratégicas, combinando ubicaciones privilegiadas con infraestructura de primer nivel. Entendemos que tanto el turista que busca un alquiler a corto plazo como el empresario que necesita arrendar una ofibodega requieren rapidez, profesionalismo y confianza.</p><p>Explora nuestras propiedades listas para habitar o descubre cómo nuestros espacios industriales pueden potenciar la logística de tu negocio hoy mismo.</p></div>
 </div>
-<div class="container stats reveal"><article><strong>5</strong><span>Propiedades de renta corta</span></article><article><strong>2</strong><span>Ofibodegas</span></article><article><strong>2</strong><span>Bodegas pequeñas</span></article><article><strong>1</strong><span>Oficina ejecutiva</span></article></div>
-</section>
-<section class="section section-dark"><div class="container"><p class="eyebrow">Nuestro portafolio</p><h2>Espacios para cada necesidad</h2>
-<div class="card-grid">
-<article class="card reveal"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=85" alt="Hospedaje"><div class="card-body"><h3>Hospedaje y rentas cortas</h3><p>Propiedades equipadas para viajes de placer o negocios.</p><a class="text-link" href="hospedaje.html">Conocer propiedades →</a></div></article>
-<article class="card reveal"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85" alt="Bodega"><div class="card-body"><h3>Comercial e industrial</h3><p>Ofibodegas, bodegas y oficinas con disponibilidad inmediata.</p><a class="text-link" href="comercial.html">Ver espacios →</a></div></article>
-<article class="card reveal"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85" alt="Proyecto inmobiliario"><div class="card-body"><h3>Futuros proyectos</h3><p>Ocho apartamentos de renta corta previstos para 2027.</p><a class="text-link" href="proyectos.html">Descubrir proyecto →</a></div></article>
-</div></div></section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <img src="assets/logo-mcsa.png" alt="Multinegocios Creativos S.A.">
-      <p>Hospedaje, comercio e industria en un portafolio inmobiliario integral.</p>
+    <main class="container">
+
+        <header>
+            <div>
+                <h1>Mis cronómetros</h1>
+                <p>Registra el tiempo que dedicas a cada actividad.</p>
+            </div>
+
+            <button id="nuevoCronometro" class="btn-primary">
+                + Nuevo cronómetro
+            </button>
+        </header>
+
+        <section id="cronometros" class="cronometros"></section>
+
+        <div id="emptyState" class="empty-state">
+            <h2>No tienes cronómetros</h2>
+            <p>Crea uno para comenzar a registrar tu tiempo.</p>
+
+            <button id="crearPrimero" class="btn-primary">
+                Crear cronómetro
+            </button>
+        </div>
+
+    </main>
+
+    <!-- MODAL -->
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitulo">
+                Nuevo cronómetro
+            </h2>
+
+            <input
+                type="text"
+                id="nombreCronometro"
+                placeholder="Ej. Trabajar en informe EPS"
+                maxlength="80"
+            >
+
+            <div class="modal-buttons">
+
+                <button id="cancelar" class="btn-secondary">
+                    Cancelar
+                </button>
+
+                <button id="guardar" class="btn-primary">
+                    Guardar
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
-    <div><h3>Explorar</h3><a href="hospedaje.html">Hospedaje</a><a href="comercial.html">Comercial</a><a href="proyectos.html">Proyectos 2027</a></div>
-    <div><h3>Empresa</h3><a href="nosotros.html">Nosotros</a><a href="contacto.html">Contacto</a></div>
-    <div><h3>Reservas</h3><a href="https://airbnb.com/h/meraki101802" target="_blank">Meraki 101802</a><a href="https://airbnb.com/h/brunello1004" target="_blank">Brunello 1004</a><a href="https://airbnb.com/h/shift611d" target="_blank">Shift 611D</a></div>
-  </div>
-  <div class="container footer-bottom"><p>© <span data-year></span> Multinegocios Creativos S.A.</p><p>Soluciones inmobiliarias integrales.</p></div>
-</footer>
-<a class="whatsapp-button" href="https://wa.me/50200000000?text=Hola%2C%20deseo%20informaci%C3%B3n." target="_blank" aria-label="WhatsApp">WA</a>
-</body></html>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
